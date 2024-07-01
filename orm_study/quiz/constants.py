@@ -17,3 +17,6 @@ TYPE_CHOICE = """
 [red bold]
 3. 혼합
 """
+
+MULTIPLE = "multiple_choice.txt"
+SUBJECTIVE = "subjective.txt"
