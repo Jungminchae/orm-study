@@ -1,4 +1,5 @@
-from importlib import resources  # noqa F401
+from importlib import resources
+from rich import print
 from quiz.constants import CHAPTER, MULTIPLE, SUBJECTIVE
 
 
@@ -6,22 +7,33 @@ def get_chapter(chapter_number: str, _type="1") -> str | tuple[str, str]:
     chapter_name = CHAPTER.get(chapter_number)
     quiz_path = f"quiz.python.{chapter_name}"
     if _type == "1":
-        with resources.path(quiz_path, MULTIPLE) as quiz_path:
-            with open(quiz_path) as multiple_file:
-                return multiple_file.read()
+        return _get_multiple(quiz_path)
     elif _type == "3":
-        with resources.path(quiz_path, MULTIPLE) as multiple_path:
-            with open(multiple_path) as multiple_file:
-                multiple = multiple_file.read()
-
-        with resources.path(quiz_path, SUBJECTIVE) as subjective_path:
-            with open(subjective_path) as subjective_file:
-                subjective = subjective_file.read()
-        return multiple, subjective
+        multiple = _get_multiple(quiz_path)
+        try:
+            subjective = _get_subjective(quiz_path)
+            return multiple, subjective
+        except FileNotFoundError:
+            print("[red bold]주관식 문제가 없습니다. \n객관식 문제만 출제합니다.ㅠㅠ")
+            return multiple
     else:
-        with resources.path(quiz_path, SUBJECTIVE) as subjective_path:
-            with open(subjective_path) as subjective_file:
-                return subjective_file.read()
+        try:
+            return _get_subjective(quiz_path)
+        except FileNotFoundError:
+            print("[red bold]객관식 문제가 없습니다. \n주관식 문제만 출제합니다.ㅠㅠ")
+            return _get_multiple(quiz_path)
+
+
+def _get_multiple(quiz_path: str) -> str:
+    with resources.path(quiz_path, MULTIPLE) as quiz_path:
+        with open(quiz_path) as multiple_file:
+            return multiple_file.read()
+
+
+def _get_subjective(quiz_path: str) -> str:
+    with resources.path(quiz_path, SUBJECTIVE) as subjective_path:
+        with open(subjective_path) as subjective_file:
+            return subjective_file.read()
 
 
 def parse_content(contents: str) -> tuple[list[str], list[str]]:
