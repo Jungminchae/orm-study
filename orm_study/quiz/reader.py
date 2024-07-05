@@ -1,11 +1,11 @@
 from importlib import resources
 from rich import print
-from quiz.constants import CHAPTER, MULTIPLE, SUBJECTIVE
+from orm_study.quiz.constants import CHAPTER, MULTIPLE, SUBJECTIVE
 
 
 def get_chapter(chapter_number: str, _type="1") -> str | tuple[str, str]:
     chapter_name = CHAPTER.get(chapter_number)
-    quiz_path = f"quiz.python.{chapter_name}"
+    quiz_path = f"orm_study.quiz.python.{chapter_name}"
     if _type == "1":
         return _get_multiple(quiz_path)
     elif _type == "3":

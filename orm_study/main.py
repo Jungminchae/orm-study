@@ -1,5 +1,5 @@
 from typer import Typer
-from quiz.command import app as quiz_app
+from orm_study.quiz.command import app as quiz_app
 
 
 app = Typer()

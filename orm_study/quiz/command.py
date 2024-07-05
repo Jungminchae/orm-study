@@ -5,8 +5,8 @@ from typer import Typer
 from rich.prompt import Prompt
 from rich.panel import Panel
 from rich import print
-from quiz.constants import CHAPTER, CHAPTER_CHOICE, TYPE_CHOICE
-from quiz.reader import get_chapter, parse_content
+from orm_study.quiz.constants import CHAPTER, CHAPTER_CHOICE, TYPE_CHOICE
+from orm_study.quiz.reader import get_chapter, parse_content
 
 app = Typer()
 
