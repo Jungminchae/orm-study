@@ -8,6 +8,7 @@ CHAPTER_CHOICE = f"""
 파이썬 문제 풀기
 [green bold]
 챕터 1: {CHAPTER["1"]}
+챕터 2: {CHAPTER["2"]}
 """
 
 TYPE_CHOICE = """
