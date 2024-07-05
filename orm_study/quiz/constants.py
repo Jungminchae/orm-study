@@ -1,5 +1,6 @@
 CHAPTER = {
     "1": "변수",
+    "2": "자료형",
 }
 
 CHAPTER_CHOICE = f"""
