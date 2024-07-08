@@ -1,0 +1,23 @@
+name: Check Quiz Format
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  check_format:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.11
+
+      - name: Run format check
+        run: |
+          python scripts/quiz_format_checker.py ..
