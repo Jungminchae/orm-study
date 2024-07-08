@@ -20,4 +20,4 @@ jobs:
 
       - name: Run format check
         run: |
-          python scripts/check_format.py ..
+          python scripts/quiz_format_checker.py ..
