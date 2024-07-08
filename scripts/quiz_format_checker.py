@@ -3,7 +3,7 @@ import sys
 import os
 
 
-def check_format(file_path):
+def check_format(file_path: str) -> list[str]:
     with open(file_path, "r", encoding="utf-8") as f:
         lines = f.readlines()
 
@@ -41,7 +41,7 @@ def check_format(file_path):
     return errors
 
 
-def find_and_check_files(root_dir):
+def find_and_check_files(root_dir: str) -> list[str]:
     all_errors = []
     for subdir, _, files in os.walk(root_dir):
         for file in files:
