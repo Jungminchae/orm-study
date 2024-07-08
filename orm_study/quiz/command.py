@@ -56,7 +56,7 @@ def solve_quiz(quiz_answer_set: List[Tuple[str, str]]) -> List[bool]:
     user_answers = []
     for i, (quiz, answer) in enumerate(quiz_answer_set, start=1):
         print(Panel(f"[blue bold]문제 {i}{quiz}", title_align="center"))
-        user_input = Prompt.ask("[white bold] 정답을 입력해주세요: ")
+        user_input = Prompt.ask("[white bold] 정답을 입력해주세요")
         user_answers.append(user_input == answer)
         print()
     return user_answers
