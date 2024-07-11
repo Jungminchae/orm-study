@@ -81,7 +81,7 @@ def start(
     quiz_answer_set = quiz_answer_set[:quiz_num]
 
     print(f"[green bold]챕터 {chapter_input}: {CHAPTER[chapter_input]}\n")
-    # 타이머 추가
+
     start_time = time.time() if time_check else None
     user_answers = solve_quiz(quiz_answer_set)
     end_time = time.time() if time_check else None
