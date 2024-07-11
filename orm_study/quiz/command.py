@@ -1,6 +1,7 @@
+import time
 import random
 import typer
-from typing import List, Tuple
+from typing import List, Tuple, Annotated
 from typer import Typer
 from rich.prompt import Prompt
 from rich.panel import Panel
@@ -68,7 +69,8 @@ def display_results(chapter_input: str, user_answers: List[bool]):
 
 
 @app.command()
-def start():
+def start(time_check: Annotated[bool, typer.Argument(default=False)]):
+    start_time = time.time() if time_check else None
     chapter_input = select_chapter()
     type_input = select_quiz_type()
     quiz_answer_set = fetch_quiz(chapter_input, type_input)
@@ -77,6 +79,10 @@ def start():
 
     print(f"[green bold]챕터 {chapter_input}: {CHAPTER[chapter_input]}\n")
     user_answers = solve_quiz(quiz_answer_set)
+    end_time = time.time() if time_check else None
+
+    if all([start_time, end_time]):
+        print(f"[red bold]소요 시간: {end_time - start_time:.2f}초")
     display_results(chapter_input, user_answers)
 
 
