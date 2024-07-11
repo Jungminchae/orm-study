@@ -69,7 +69,7 @@ def display_results(chapter_input: str, user_answers: List[bool]):
 
 
 @app.command(help="파이썬 퀴즈를 시작합니다.")
-def start(time_check: Annotated[bool, typer.Argument()] = False):
+def start(time_check: Annotated[bool, typer.Option(help="퀴즈 타이머 추가")] = False):
     start_time = time.time() if time_check else None
     chapter_input = select_chapter()
     type_input = select_quiz_type()
