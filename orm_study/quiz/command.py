@@ -68,8 +68,8 @@ def display_results(chapter_input: str, user_answers: List[bool]):
     print(f"[blue bold]총 {len(user_answers)}문제 중 {user_answers.count(True)}문제를 맞추셨습니다.")
 
 
-@app.command()
-def start(time_check: Annotated[bool, typer.Argument(default=False)]):
+@app.command(help="파이썬 퀴즈를 시작합니다.")
+def start(time_check: Annotated[bool, typer.Argument()] = False):
     start_time = time.time() if time_check else None
     chapter_input = select_chapter()
     type_input = select_quiz_type()
