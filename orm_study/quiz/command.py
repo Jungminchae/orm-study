@@ -69,8 +69,11 @@ def display_results(chapter_input: str, user_answers: List[bool]):
 
 
 @app.command(help="파이썬 퀴즈를 시작합니다.")
-def start(time_check: Annotated[bool, typer.Option(help="퀴즈 타이머 추가")] = False):
-    start_time = time.time() if time_check else None
+def start(
+    time_check: Annotated[bool, typer.Option(help="퀴즈 타이머 추가")] = False,
+    name: Annotated[str, typer.Argument(help="이름을 입력해주세요")] = "익명",
+):
+    print(f"[green bold]안녕하세요, {name}님! 파이썬 퀴즈를 시작합니다.")
     chapter_input = select_chapter()
     type_input = select_quiz_type()
     quiz_answer_set = fetch_quiz(chapter_input, type_input)
@@ -78,6 +81,8 @@ def start(time_check: Annotated[bool, typer.Option(help="퀴즈 타이머 추가
     quiz_answer_set = quiz_answer_set[:quiz_num]
 
     print(f"[green bold]챕터 {chapter_input}: {CHAPTER[chapter_input]}\n")
+    # 타이머 추가
+    start_time = time.time() if time_check else None
     user_answers = solve_quiz(quiz_answer_set)
     end_time = time.time() if time_check else None
 
