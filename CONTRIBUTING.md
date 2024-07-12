@@ -36,6 +36,10 @@
      답.2
      ```
 
+   - **새로운 챕터를 추가한 경우**
+     - `orm_study/quiz/constants.py` 안에 CHAPTER와 CHAPTER_CHOICE에 새 챕터를 추가해주세요.
+     - 추가하지 않으면 테스트에 실패합니다.
+
 3. Pull Request를 생성합니다.
 
 ### 이미지로 확인
