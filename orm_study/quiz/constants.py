@@ -1,6 +1,7 @@
 CHAPTER = {
     "1": "변수",
     "2": "자료형",
+    "3": "연산자",
 }
 
 CHAPTER_CHOICE = f"""
@@ -9,6 +10,7 @@ CHAPTER_CHOICE = f"""
 [green bold]
 챕터 1: {CHAPTER["1"]}
 챕터 2: {CHAPTER["2"]}
+챕터 3: {CHAPTER["3"]}
 """
 
 TYPE_CHOICE = """
