@@ -1,6 +1,7 @@
+import time
 import random
 import typer
-from typing import List, Tuple
+from typing import List, Tuple, Annotated
 from typer import Typer
 from rich.prompt import Prompt
 from rich.panel import Panel
@@ -67,8 +68,12 @@ def display_results(chapter_input: str, user_answers: List[bool]):
     print(f"[blue bold]총 {len(user_answers)}문제 중 {user_answers.count(True)}문제를 맞추셨습니다.")
 
 
-@app.command()
-def start():
+@app.command(help="파이썬 퀴즈를 시작합니다.")
+def start(
+    time_check: Annotated[bool, typer.Option(help="퀴즈 타이머 추가")] = False,
+    name: Annotated[str, typer.Argument(help="이름을 입력해주세요")] = "익명",
+):
+    print(f"[green bold]안녕하세요, {name}님! 파이썬 퀴즈를 시작합니다.")
     chapter_input = select_chapter()
     type_input = select_quiz_type()
     quiz_answer_set = fetch_quiz(chapter_input, type_input)
@@ -76,7 +81,13 @@ def start():
     quiz_answer_set = quiz_answer_set[:quiz_num]
 
     print(f"[green bold]챕터 {chapter_input}: {CHAPTER[chapter_input]}\n")
+
+    start_time = time.time() if time_check else None
     user_answers = solve_quiz(quiz_answer_set)
+    end_time = time.time() if time_check else None
+
+    if all([start_time, end_time]):
+        print(f"[red bold]소요 시간: {end_time - start_time:.2f}초")
     display_results(chapter_input, user_answers)
 
 
