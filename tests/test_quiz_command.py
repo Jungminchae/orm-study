@@ -21,7 +21,7 @@ def test_select_chapter_valid(monkeypatch, mock_chapters):
 
 
 def test_select_chapter_invalid(monkeypatch, mock_chapters):
-    monkeypatch.setattr("rich.prompt.Prompt.ask", lambda prompt: "3")
+    monkeypatch.setattr("rich.prompt.Prompt.ask", lambda prompt: "333")
     with pytest.raises(typer.Exit):
         select_chapter()
 
