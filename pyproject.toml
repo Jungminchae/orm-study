@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "orm-study"
-version = "0.0.1"
+version = "0.0.2"
 description = "cli library for studying python in ormcamp"
 authors = ["jungminchae <minchae3618@gmail.com>"]
 license = "MIT"
