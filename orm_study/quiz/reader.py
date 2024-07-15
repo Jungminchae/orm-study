@@ -12,7 +12,7 @@ def get_chapter(chapter_number: str, _type="1") -> str | tuple[str, str]:
         multiple = _get_multiple(quiz_path)
         try:
             subjective = _get_subjective(quiz_path)
-            return multiple, subjective
+            return multiple + subjective
         except FileNotFoundError:
             print("[red bold]주관식 문제가 없습니다. \n객관식 문제만 출제합니다.ㅠㅠ")
             return multiple
