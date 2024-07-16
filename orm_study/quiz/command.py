@@ -15,11 +15,15 @@ app = Typer()
 def fetch_quiz(chapter_input: str, type_input: str) -> List[Tuple[str, str]]:
     if type_input == "1":
         quiz_txt = get_chapter(chapter_number=chapter_input)
-        quizes, answers = parse_content(quiz_txt)
-        quiz_answer_set = list(zip(quizes, answers))
-        random.shuffle(quiz_answer_set)
-        return quiz_answer_set
-    return []
+    elif type_input == "2":
+        quiz_txt = get_chapter(chapter_number=chapter_input, _type="2")
+    else:
+        quiz_txt = get_chapter(chapter_number=chapter_input, _type="3")
+    quizes, answers = parse_content(quiz_txt)
+    quiz_answer_set = list(zip(quizes, answers))
+    random.shuffle(quiz_answer_set)
+
+    return quiz_answer_set
 
 
 def select_chapter() -> str:
