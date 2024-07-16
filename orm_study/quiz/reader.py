@@ -26,13 +26,13 @@ def get_chapter(chapter_number: str, _type="1") -> str | tuple[str, str]:
 
 def _get_multiple(quiz_path: str) -> str:
     with resources.path(quiz_path, MULTIPLE) as quiz_path:
-        with open(quiz_path) as multiple_file:
+        with open(quiz_path, "r", encoding="utf-8") as multiple_file:
             return multiple_file.read()
 
 
 def _get_subjective(quiz_path: str) -> str:
     with resources.path(quiz_path, SUBJECTIVE) as subjective_path:
-        with open(subjective_path) as subjective_file:
+        with open(subjective_path, "r", encoding="utf-8") as subjective_file:
             return subjective_file.read()
 
 
