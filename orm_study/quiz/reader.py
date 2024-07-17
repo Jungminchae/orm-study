@@ -1,4 +1,4 @@
-from importlib import resources
+from importlib.resources import files
 from rich import print
 from orm_study.quiz.constants import CHAPTER, MULTIPLE, SUBJECTIVE
 
@@ -25,15 +25,15 @@ def get_chapter(chapter_number: str, _type="1") -> str | tuple[str, str]:
 
 
 def _get_multiple(quiz_path: str) -> str:
-    with resources.path(quiz_path, MULTIPLE) as quiz_path:
-        with open(quiz_path, "r", encoding="utf-8") as multiple_file:
-            return multiple_file.read()
+    multiple_path = files(quiz_path).joinpath(MULTIPLE)
+    with open(multiple_path, "r", encoding="utf-8") as multiple_file:
+        return multiple_file.read()
 
 
 def _get_subjective(quiz_path: str) -> str:
-    with resources.path(quiz_path, SUBJECTIVE) as subjective_path:
-        with open(subjective_path, "r", encoding="utf-8") as subjective_file:
-            return subjective_file.read()
+    subjective_path = files(quiz_path).joinpath(SUBJECTIVE)
+    with open(subjective_path, "r", encoding="utf-8") as subjective_file:
+        return subjective_file.read()
 
 
 def parse_content(contents: str) -> tuple[list[str], list[str]]:
