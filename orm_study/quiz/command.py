@@ -8,7 +8,7 @@ from rich.panel import Panel
 from rich import print
 from orm_study.quiz.constants import CHAPTER, TYPE, EXAM_CHOICE, CHAPTER_CHOICE, TYPE_CHOICE
 from orm_study.quiz.reader import get_chapter, parse_content
-from orm_study.quiz.certification import generate_certification_image
+from scripts.certification import generate_certification_image
 
 app = Typer()
 
