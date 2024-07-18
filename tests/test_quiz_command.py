@@ -59,7 +59,7 @@ def test_solve_quiz(monkeypatch):
     monkeypatch.setattr("rich.prompt.Prompt.ask", lambda prompt: next(inputs))
 
     quiz_answer_set = [("Quiz 1", "Answer 1"), ("Quiz 2", "Answer 2")]
-    results = solve_quiz(quiz_answer_set)
+    results, process_time = solve_quiz(quiz_answer_set)
     assert results == [True, False]
 
 
