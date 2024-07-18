@@ -120,7 +120,7 @@ def select_quiz_num(max_num: int, min_num: int = 1) -> int:
 
 
 @TimeTrace
-def solve_quiz(quiz_answer_set: List[Tuple[str, str]]) -> tuple[List[bool], float]:
+def solve_quiz(quiz_answer_set: List[Tuple[str, str]]) -> List[bool]:
     user_answers = []
     for i, (quiz, answer) in enumerate(quiz_answer_set, start=1):
         print(Panel(f"[blue bold]문제 {i}{quiz}", title_align="center"))
