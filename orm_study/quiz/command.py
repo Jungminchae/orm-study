@@ -9,33 +9,15 @@ from rich import print
 from orm_study.quiz.constants import CHAPTER, TYPE, EXAM_CHOICE, CHAPTER_CHOICE, TYPE_CHOICE
 from orm_study.quiz.reader import get_chapter, parse_content
 from scripts.certification import generate_certification_image
+from scripts.decorator import TimeTrace
 
 app = Typer()
 
 
-class TimeTrace:
-    """
-    :param func: 파이썬 함수
-    :param *args: func's positional arguments
-    :param **kwargs: func's keyword arguments
-    :return: func's return value, func's executed time
-    """
-
-    def __init__(self, func):
-        self.func = func
-
-    def __call__(self, *args, **kwargs) -> Tuple[any, float]:
-        start_time = time.time()
-        result = self.func(*args, **kwargs)
-        end_time = time.time()
-
-        return result, end_time - start_time
-
-
 def fetch_quiz(chapter_input: str, type_input: str) -> List[Tuple[str, str]]:
     """
-    :param chapter_input:
-    :param type_input:
+    :param chapter_input: chapter_input ∈ CHAPTER
+    :param type_input: type_input ∈ TYPE
     :raises:`typer.Exit`: chapter_input not in CHAPTER list or type_input not in TYPE list
     :return: quiz_answer_set
     """
