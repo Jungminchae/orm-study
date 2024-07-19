@@ -7,8 +7,8 @@ from rich.panel import Panel
 from rich import print
 from orm_study.quiz.constants import CHAPTER, TYPE, EXAM_CHOICE, CHAPTER_CHOICE, TYPE_CHOICE
 from orm_study.quiz.reader import get_chapter, parse_content
-from scripts.certification import generate_certification_image
-from scripts.decorator import TimeTrace
+from orm_study.quiz.certification import generate_certification_image
+from orm_study.quiz.decorator import TimeTrace
 
 app = Typer()
 
@@ -17,7 +17,7 @@ def fetch_quiz(chapter_input: str, type_input: str) -> List[Tuple[str, str]]:
     """
     :param chapter_input: chapter_input ∈ CHAPTER
     :param type_input: type_input ∈ TYPE
-    :raises:`typer.Exit`: chapter_input not in CHAPTER list or type_input not in TYPE list
+    :raises:`typer.Exit`: chapter_input not in CHAPTER or type_input not in TYPE
     :return: quiz_answer_set
     """
     try:
@@ -87,6 +87,11 @@ def select_quiz_type() -> str:
 
 
 def select_quiz_num(max_num: int, min_num: int = 1) -> int:
+    """
+    :param max_num: 최대 문제 수
+    :param min_num: 최소 문제 수, 기본값은 1 입니다.
+    :return: min_num 이상, max_num 이하의 정수
+    """
     while True:
         msg = f"[white bold]문항 수를 선택해주세요. ({min_num} ~ {max_num}개)"
         quiz_num = Prompt.ask(msg)
@@ -125,7 +130,7 @@ def start(
     exam_mode_on = select_exam_mode()
     quiz_answer_set = quiz_num = chapter_input = type_input = None
 
-    # TODO: select_exam_mode 함수를 지우고 새로운 커멘드 exam을 사용할 수 있도록 분리된 함수로 작성해야합니다
+    # TODO: select_exam_mode 함수를 지우고 새로운 커멘드 exam을 사용할 수 있도록 분리된 함수로 작성해야 합니다.
     if exam_mode_on:
         quiz_answer_set = fetch_exam()
         quiz_num = select_quiz_num(len(quiz_answer_set), min_num=15)
@@ -146,7 +151,7 @@ def start(
         print("[red bold]시험 종료")
         save_path = "./"
 
-        # TODO: 이미지 세이브 위치를 변경할 수 있어야 합니다
+        # TODO: 이미지 세이브 위치를 변경할 수 있어야 합니다.
         generate_certification_image(name, user_answers, process_time, save_path)
         print(f"인증서가 다음 위치에 저장되었습니다. {save_path}")
     else:
