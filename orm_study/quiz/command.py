@@ -125,7 +125,7 @@ def start(
     exam_mode_on = select_exam_mode()
     quiz_answer_set = quiz_num = chapter_input = type_input = None
 
-    # TODO: select_exam_mode 함수를 지우고 새로운 커멘드 exam을 사용할 수 있도록 분리된 함수로 작성해야합니다.
+    # TODO: select_exam_mode 함수를 지우고 새로운 커멘드 exam을 사용할 수 있도록 분리된 함수로 작성해야합니다
     if exam_mode_on:
         quiz_answer_set = fetch_exam()
         quiz_num = select_quiz_num(len(quiz_answer_set), min_num=15)
@@ -146,7 +146,7 @@ def start(
         print("[red bold]시험 종료")
         save_path = "./"
 
-        # TODO: 이미지 세이브 위치를 변경할 수 있어야 합니다.
+        # TODO: 이미지 세이브 위치를 변경할 수 있어야 합니다
         generate_certification_image(name, user_answers, process_time, save_path)
         print(f"인증서가 다음 위치에 저장되었습니다. {save_path}")
     else:
