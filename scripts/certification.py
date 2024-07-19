@@ -19,7 +19,7 @@ def generate_certification_image(name, user_answers, process_time, save_path):
 
     candidate_score_msg = f"{user_answers.count(True)} / {len(user_answers)}"
     trying_time_msg = f"{int(process_time // 60 // 60)}h {int(process_time // 60 % 60)}m {process_time % 60:.2f}s"
-    candidate_date_msg = f"{date.strftime("%m %d. %Y")}"
+    candidate_date_msg = "{}".format(date.strftime("%m %d. %Y"))
     pass_fail_msg = "PASS" if user_answers.count(True) / len(user_answers) * 100 >= 75 else "FAIL"
 
     out_img.text(xy=(width // 2, 460), text=name, fill=(59, 59, 59), font=title_font, anchor="mm")
