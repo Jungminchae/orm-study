@@ -1,4 +1,3 @@
-import time
 import random
 import typer
 from typing import List, Tuple, Annotated
@@ -145,7 +144,7 @@ def start(
 
     if exam_mode_on:
         print("[red bold]시험 종료")
-        save_path = './'
+        save_path = "./"
 
         # TODO: 이미지 세이브 위치를 변경할 수 있어야 합니다.
         generate_certification_image(name, user_answers, process_time, save_path)

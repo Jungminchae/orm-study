@@ -1,6 +1,6 @@
 from importlib.resources import files
 from rich import print
-from orm_study.quiz.constants import CHAPTER, TYPE, MULTIPLE, SUBJECTIVE
+from orm_study.quiz.constants import CHAPTER, MULTIPLE, SUBJECTIVE
 
 
 def get_chapter(chapter_number: str, _type="1") -> str | tuple[str, str]:

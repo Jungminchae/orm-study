@@ -4,13 +4,9 @@ CHAPTER = {
     "3": "연산자",
 }
 
-TYPE = {
-    "1": "객관식",
-    "2": "주관식",
-    "3": "혼합"
-}
+TYPE = {"1": "객관식", "2": "주관식", "3": "혼합"}
 
-EXAM_CHOICE = f"""
+EXAM_CHOICE = """
 [white bold]
 시험 모드 적용
 [green bold]
