@@ -73,7 +73,7 @@ def fetch_exam() -> List[Tuple[str, str]]:
 
 def select_exam_mode() -> bool:
     print(Panel(EXAM_CHOICE, title="시험 모드", title_align="center"))
-    chapter_input = Prompt.ask("[white bold]시험 모드에 도전하시겠습니까? Y/n ")
+    chapter_input = Prompt.ask("[white bold]시험 모드에 도전하시겠습니까?")
 
     if chapter_input.upper() == "Y":
         return True
@@ -137,8 +137,8 @@ def display_results(chapter_input: str, user_answers: List[bool]):
 
 @app.command(help="파이썬 퀴즈를 시작합니다.")
 def start(
-        time_check: Annotated[bool, typer.Option(help="퀴즈 타이머 추가")] = False,
-        name: Annotated[str, typer.Argument(help="이름을 입력해주세요")] = "익명",
+    time_check: Annotated[bool, typer.Option(help="퀴즈 타이머 추가")] = False,
+    name: Annotated[str, typer.Argument(help="이름을 입력해주세요")] = "익명",
 ):
     print(f"[green bold]안녕하세요, {name}님! 파이썬 퀴즈를 시작합니다.")
     exam_mode_on = select_exam_mode()

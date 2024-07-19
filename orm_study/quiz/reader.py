@@ -12,7 +12,7 @@ def get_chapter(chapter_number: str, _type="1") -> str | tuple[str, str]:
 
     if _type == "1":
         return _get_multiple(quiz_path)
-    if _type == "2":
+    elif _type == "2":
         try:
             return _get_subjective(quiz_path)
         except FileNotFoundError:
