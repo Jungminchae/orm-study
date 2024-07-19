@@ -2,17 +2,9 @@ import pytest
 import typer
 from typer.testing import CliRunner
 from orm_study.quiz.command import select_chapter, select_quiz_type, fetch_quiz, select_quiz_num, solve_quiz, display_results
-from orm_study.quiz.constants import CHAPTER, CHAPTER_CHOICE, TYPE_CHOICE
 from orm_study.main import app
 
 runner = CliRunner()
-
-
-@pytest.fixture
-def mock_chapters(monkeypatch):
-    monkeypatch.setattr("orm_study.quiz.constants.CHAPTER", CHAPTER)
-    monkeypatch.setattr("orm_study.quiz.constants.CHAPTER_CHOICE", CHAPTER_CHOICE)
-    monkeypatch.setattr("orm_study.quiz.constants.TYPE_CHOICE", TYPE_CHOICE)
 
 
 def test_select_chapter_valid(monkeypatch, mock_chapters):
