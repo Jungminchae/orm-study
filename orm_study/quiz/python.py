@@ -50,7 +50,7 @@ class PythonQuizManager:
         quizes = self.python_quiz.quiz_list
         if quiz_num:
             quizes = random.sample(quizes, quiz_num)
-        answer_list = solve_quiz(quizes)
+        answer_list, process_time = solve_quiz(quizes)
         display_results(self.python_quiz.chapter, answer_list)
 
     def show(self, only_quiz: bool = False, quiz_num: Optional[int] = None) -> None:
