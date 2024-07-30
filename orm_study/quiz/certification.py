@@ -1,7 +1,9 @@
 import datetime
 import os
-from PIL import Image, ImageFont, ImageDraw
-from orm_study.quiz.constants import CERTIFICATION_TTF_PATH, CERTIFICATION_IMG_PATH
+
+from PIL import Image, ImageDraw, ImageFont
+
+from orm_study.quiz.constants import CERTIFICATION_IMG_PATH, CERTIFICATION_TTF_PATH
 
 
 def _load_font(fontsize) -> ImageFont.FreeTypeFont:

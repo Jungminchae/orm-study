@@ -1,4 +1,5 @@
 import pytest
+
 from orm_study.quiz.constants import CHAPTER, CHAPTER_CHOICE, TYPE_CHOICE
 
 

@@ -1,14 +1,22 @@
 import random
+from typing import Annotated, List, Tuple
+
 import typer
-from typing import List, Tuple, Annotated
-from typer import Typer
-from rich.prompt import Prompt
-from rich.panel import Panel
 from rich import print
-from orm_study.quiz.constants import CHAPTER, TYPE, EXAM_CHOICE, CHAPTER_CHOICE, TYPE_CHOICE
-from orm_study.quiz.reader import get_chapter, parse_content
+from rich.panel import Panel
+from rich.prompt import Prompt
+from typer import Typer
+
 from orm_study.quiz.certification import generate_certification_image
+from orm_study.quiz.constants import (
+    CHAPTER,
+    CHAPTER_CHOICE,
+    EXAM_CHOICE,
+    TYPE,
+    TYPE_CHOICE,
+)
 from orm_study.quiz.decorator import TimeTrace
+from orm_study.quiz.reader import get_chapter, parse_content
 
 app = Typer()
 
