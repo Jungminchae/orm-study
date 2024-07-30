@@ -1,17 +1,18 @@
 import pytest
 import typer
 from typer.testing import CliRunner
-from orm_study.quiz.command import (
-    select_exam_mode,
-    select_chapter,
-    select_quiz_type,
-    fetch_quiz,
-    fetch_exam,
-    select_quiz_num,
-    solve_quiz,
-    display_results,
-)
+
 from orm_study.main import app
+from orm_study.quiz.command import (
+    display_results,
+    fetch_exam,
+    fetch_quiz,
+    select_chapter,
+    select_exam_mode,
+    select_quiz_num,
+    select_quiz_type,
+    solve_quiz,
+)
 
 runner = CliRunner()
 
@@ -101,7 +102,10 @@ def test_start(monkeypatch):
     monkeypatch.setattr("rich.prompt.Prompt.ask", lambda prompt, choices=None: next(inputs))  # choices 추가
     monkeypatch.setattr("rich.prompt.Prompt.ask", lambda prompt, choices=None: next(inputs))  # choices 추가
 
-    monkeypatch.setattr("orm_study.quiz.command.fetch_quiz", lambda chapter, type: [("Quiz 1", "Answer 1")])
+    monkeypatch.setattr(
+        "orm_study.quiz.command.fetch_quiz",
+        lambda chapter, type: [("Quiz 1", "Answer 1")],
+    )
     monkeypatch.setattr("orm_study.quiz.command.display_results", lambda chapter, user_answers: None)
 
     result = runner.invoke(app, ["quiz", "start"])

@@ -18,18 +18,11 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: 3.11
-
-      - name: Check black
-        uses: psf/black@stable
+      - name: Check linter by ruff
+        uses: chartboost/ruff-action@v1
         with:
-          options: "--check --verbose --line-length 140"
           src: "./orm_study"
-          version: "~= 22.0"
 
-      - name: Check flake8
-        uses: py-actions/flake8@v2
-        with:
-          path: "./orm_study"
   test:
     name: Test after Lint
     needs: lint
