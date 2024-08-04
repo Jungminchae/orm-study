@@ -1,6 +1,6 @@
 import os
-from orm_study.quiz.constants import CHAPTER, CHAPTER_CHOICE
 
+from orm_study.quiz.constants import CHAPTER, CHAPTER_CHOICE
 
 CHAPTER_DIRS = os.listdir("orm_study/quiz/_python")
 

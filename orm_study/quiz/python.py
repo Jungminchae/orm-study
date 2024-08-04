@@ -1,9 +1,11 @@
 import random
-from typing import Optional
 from dataclasses import dataclass
+from typing import Optional
+
 from rich import print
-from orm_study.quiz.command import fetch_quiz, solve_quiz, display_results
-from orm_study.quiz.constants import CHAPTER_CHOICE, CHAPTER
+
+from orm_study.quiz.command import display_results, fetch_quiz, solve_quiz
+from orm_study.quiz.constants import CHAPTER, CHAPTER_CHOICE
 
 Select = str | int
 
@@ -50,7 +52,7 @@ class PythonQuizManager:
         quizes = self.python_quiz.quiz_list
         if quiz_num:
             quizes = random.sample(quizes, quiz_num)
-        answer_list = solve_quiz(quizes)
+        answer_list, process_time = solve_quiz(quizes)
         display_results(self.python_quiz.chapter, answer_list)
 
     def show(self, only_quiz: bool = False, quiz_num: Optional[int] = None) -> None:
