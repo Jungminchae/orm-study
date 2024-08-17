@@ -98,7 +98,8 @@ def test_display_results(capfd):
 
 
 def test_start(monkeypatch):
-    inputs = iter(["a", "1", "1", "1", "Answer 1"])
+    inputs = iter(["n", "a", "1", "1", "1", "Answer 1"])
+    monkeypatch.setattr("rich.prompt.Prompt.ask", lambda prompt, choices=None: next(inputs))  # choices 추가
     monkeypatch.setattr("rich.prompt.Prompt.ask", lambda prompt, choices=None: next(inputs))  # choices 추가
     monkeypatch.setattr("rich.prompt.Prompt.ask", lambda prompt, choices=None: next(inputs))  # choices 추가
 
