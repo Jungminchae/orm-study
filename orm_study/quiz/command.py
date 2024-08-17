@@ -129,11 +129,27 @@ def display_results(chapter_input: str, user_answers: List[bool]):
     print(f"[blue bold]총 {len(user_answers)}문제 중 {user_answers.count(True)}문제를 맞추셨습니다.")
 
 
+def change_name(current_name: str) -> str:
+    new_name = typer.prompt("새 이름을 입력해주세요. 현재 이름 =", default=current_name)
+    if not new_name.strip():
+        print(f"이름이 비어있습니다. [{current_name}]로 유지됩니다.")
+        return current_name
+    elif new_name == current_name:
+        print(f"[{current_name}]로 유지됩니다.")
+        return current_name
+    print(f"이름이 [{new_name}]로 변경되었습니다.")
+    return new_name
+
+
 @app.command(help="파이썬 퀴즈를 시작합니다.")
 def start(
     time_check: Annotated[bool, typer.Option(help="퀴즈 타이머 추가")] = False,
     name: Annotated[str, typer.Argument(help="이름을 입력해주세요")] = "익명",
 ):
+    name_change_mode = Prompt.ask(f"현재 이름은 [{name}]입니다. 이름을 변경하시겠습니까? (y/[N])")
+    if name_change_mode.upper() == "Y":
+        name = change_name(name)
+
     print(f"[green bold]안녕하세요, {name}님! 파이썬 퀴즈를 시작합니다.")
     exam_mode_on = select_exam_mode()
     quiz_answer_set = quiz_num = chapter_input = type_input = None
