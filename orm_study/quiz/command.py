@@ -49,7 +49,7 @@ def fetch_exam() -> List[Tuple[str, str]]:
 
     for chapter_number in CHAPTER:
         for type_input in TYPE:
-            quiz_raw = get_chapter(chapter_number, type_input)
+            quiz_raw = get_chapter(chapter_number, type_input, True)
             if quiz_raw not in quiz_txt:
                 quiz_txt.append(quiz_raw)
 
@@ -119,6 +119,9 @@ def solve_quiz(quiz_answer_set: List[Tuple[str, str]]) -> List[bool]:
     for i, (quiz, answer) in enumerate(quiz_answer_set, start=1):
         print(Panel(f"[blue bold]문제 {i}{quiz}", title_align="center"))
         user_input = Prompt.ask("[white bold] 정답을 입력해주세요")
+        while not user_input.strip():
+            print("[red bold]정답을 입력하지 않았습니다. 찍기라도 하세요.")
+            user_input = Prompt.ask("[white bold] 정답을 입력해주세요")
         user_answers.append(user_input == answer)
         print()
     return user_answers

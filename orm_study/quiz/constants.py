@@ -37,5 +37,9 @@ TYPE_CHOICE = """
 MULTIPLE = "multiple_choice.txt"
 SUBJECTIVE = "subjective.txt"
 
-CERTIFICATION_TTF_PATH = "orm_study/quiz/_resources/PretendardVariable.ttf"
-CERTIFICATION_IMG_PATH = "orm_study/quiz/_resources/certification.png"
+CERTIFICATION_TTF_PATH = "orm_study.quiz._resources"
+CERTIFICATION_IMG_PATH = "orm_study.quiz._resources"
+
+
+CERTIFICATION_TTF_NAME = "PretendardVariable.ttf"
+CERTIFICATION_IMG_NAME = "certification.png"
