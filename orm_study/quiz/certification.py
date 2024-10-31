@@ -4,11 +4,11 @@ from importlib.resources import files
 
 from PIL import Image, ImageDraw, ImageFont
 
-from orm_study.quiz.constants import CERTIFICATION_IMG_PATH, CERTIFICATION_TTF_PATH
+from orm_study.quiz.constants import CERTIFICATION_IMG_PATH, CERTIFICATION_TTF_PATH, CERTIFICATION_IMG_NAME, CERTIFICATION_TTF_NAME
 
 
 def _load_font(fontsize) -> ImageFont.FreeTypeFont:
-    return ImageFont.truetype(font=files(CERTIFICATION_TTF_PATH), size=fontsize)
+    return ImageFont.truetype(font=files(CERTIFICATION_TTF_PATH).joinpath(CERTIFICATION_TTF_NAME), size=fontsize)
 
 
 def generate_certification_image(name, user_answers, process_time, save_path) -> None:
@@ -19,7 +19,7 @@ def generate_certification_image(name, user_answers, process_time, save_path) ->
     :param save_path: 시험 성적서 저장 위치
     :return: None
     """
-    certification_img = Image.open(files(CERTIFICATION_IMG_PATH))
+    certification_img = Image.open(files(CERTIFICATION_IMG_PATH).joinpath(CERTIFICATION_IMG_NAME))
     date = datetime.datetime.now()
 
     width, _ = certification_img.size
