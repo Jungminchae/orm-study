@@ -5,7 +5,18 @@ from rich import print
 from orm_study.quiz.constants import CHAPTER, MULTIPLE, SUBJECTIVE
 
 
-def get_chapter(chapter_number: str, _type="1") -> str | tuple[str, str]:
+def get_chapter(chapter_number: str, _type: str = "1", is_exam: bool = False) -> str | tuple[str, str]:
+    """
+    get quiz from quiz text file.
+
+    :param chapter_number: chapter_number ∈ CHAPTER
+    :param _type: _type ∈ TYPE
+    :param is_exam: True if exam mode
+
+    :raises:`ValueError`: chapter_number not in CHAPTER or _type not in TYPE
+
+    :return: quiz_txt or quiz_txt + quiz_txt
+    """
     chapter_name = CHAPTER.get(chapter_number)
     quiz_path = f"orm_study.quiz._python.{chapter_name}"
 
@@ -18,7 +29,8 @@ def get_chapter(chapter_number: str, _type="1") -> str | tuple[str, str]:
         try:
             return _get_subjective(quiz_path)
         except FileNotFoundError:
-            print("[red bold]객관식 문제가 없습니다. \n주관식 문제만 출제합니다.ㅠㅠ")
+            if not is_exam:
+                print("[red bold]객관식 문제가 없습니다. \n주관식 문제만 출제합니다.ㅠㅠ")
             return _get_multiple(quiz_path)
     elif _type == "3":
         multiple = _get_multiple(quiz_path)
@@ -26,7 +38,8 @@ def get_chapter(chapter_number: str, _type="1") -> str | tuple[str, str]:
             subjective = _get_subjective(quiz_path)
             return multiple + subjective
         except FileNotFoundError:
-            print("[red bold]주관식 문제가 없습니다. \n객관식 문제만 출제합니다.ㅠㅠ")
+            if not is_exam:
+                print("[red bold]주관식 문제가 없습니다. \n객관식 문제만 출제합니다.ㅠㅠ")
             return multiple
     else:
         raise ValueError(f"Invalid type number: {_type}")

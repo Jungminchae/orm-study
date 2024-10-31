@@ -49,7 +49,7 @@ def fetch_exam() -> List[Tuple[str, str]]:
 
     for chapter_number in CHAPTER:
         for type_input in TYPE:
-            quiz_raw = get_chapter(chapter_number, type_input)
+            quiz_raw = get_chapter(chapter_number, type_input, True)
             if quiz_raw not in quiz_txt:
                 quiz_txt.append(quiz_raw)
 
