@@ -120,7 +120,7 @@ def solve_quiz(quiz_answer_set: List[Tuple[str, str]]) -> List[bool]:
         print(Panel(f"[blue bold]문제 {i}{quiz}", title_align="center"))
         user_input = Prompt.ask("[white bold] 정답을 입력해주세요")
         while not user_input.strip():
-            print("[red bold]정답을 입력해주세요.")
+            print("[red bold]정답을 입력하지 않았습니다. 찍기라도 하세요.")
             user_input = Prompt.ask("[white bold] 정답을 입력해주세요")
         user_answers.append(user_input == answer)
         print()
