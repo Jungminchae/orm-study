@@ -1,5 +1,6 @@
 import datetime
 import os
+from importlib.resources import files
 
 from PIL import Image, ImageDraw, ImageFont
 
@@ -7,7 +8,7 @@ from orm_study.quiz.constants import CERTIFICATION_IMG_PATH, CERTIFICATION_TTF_P
 
 
 def _load_font(fontsize) -> ImageFont.FreeTypeFont:
-    return ImageFont.truetype(font=CERTIFICATION_TTF_PATH, size=fontsize)
+    return ImageFont.truetype(font=files(CERTIFICATION_TTF_PATH), size=fontsize)
 
 
 def generate_certification_image(name, user_answers, process_time, save_path) -> None:
@@ -18,10 +19,10 @@ def generate_certification_image(name, user_answers, process_time, save_path) ->
     :param save_path: 시험 성적서 저장 위치
     :return: None
     """
-    certification_img = Image.open(CERTIFICATION_IMG_PATH)
+    certification_img = Image.open(files(CERTIFICATION_IMG_PATH))
     date = datetime.datetime.now()
 
-    width, height = certification_img.size
+    width, _ = certification_img.size
     out_img = ImageDraw.Draw(certification_img)
     title_font = _load_font(100)
     body_font = _load_font(24)
