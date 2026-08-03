@@ -1,7 +1,7 @@
 ### 문제 추가로 Contribution 하는 방법
 
 크게 신경써야 할 부분은 없고, 동시에 같은 문제 작업을 하지 않기 위해 아래와 같은 방식으로 프로세스를 진행합니다.
-문제는 orm_study/quiz/python/ 경로에 txt 파일로 되어있습니다.
+문제는 python_quiz/quiz/python/ 경로에 txt 파일로 되어있습니다.
 
 - 객관식 문제 파일명: multiple_choice.txt
 - 주관식 문제 파일명: subjective.txt
@@ -37,7 +37,7 @@
      ```
 
    - **새로운 챕터를 추가한 경우**
-     - `orm_study/quiz/constants.py` 안에 CHAPTER와 CHAPTER_CHOICE에 새 챕터를 추가해주세요.
+     - `python_quiz/quiz/constants.py` 안에 CHAPTER와 CHAPTER_CHOICE에 새 챕터를 추가해주세요.
      - 추가하지 않으면 테스트에 실패합니다.
 
 3. Pull Request를 생성합니다.

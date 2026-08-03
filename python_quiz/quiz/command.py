@@ -8,15 +8,15 @@ from rich.prompt import Prompt
 from rich.table import Table
 from typer import Typer
 
-from orm_study.quiz.certification import generate_certification_image
-from orm_study.quiz.constants import (
+from python_quiz.quiz.certification import generate_certification_image
+from python_quiz.quiz.constants import (
     CHAPTER,
     CHAPTER_CHOICE,
     TYPE,
     TYPE_CHOICE,
 )
-from orm_study.quiz.decorator import TimeTrace
-from orm_study.quiz.reader import get_chapter, parse_content
+from python_quiz.quiz.decorator import TimeTrace
+from python_quiz.quiz.reader import get_chapter, parse_content
 
 app = Typer()
 

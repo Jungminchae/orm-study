@@ -21,7 +21,7 @@ jobs:
       - name: Check linter by ruff
         uses: chartboost/ruff-action@v1
         with:
-          src: "./orm_study"
+          src: "./python_quiz"
 
   test:
     name: Test after Lint

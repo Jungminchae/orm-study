@@ -2,8 +2,8 @@ import pytest
 import typer
 from typer.testing import CliRunner
 
-from orm_study.main import app
-from orm_study.quiz.command import (
+from python_quiz.main import app
+from python_quiz.quiz.command import (
     display_results,
     fetch_exam,
     fetch_quiz,
@@ -56,8 +56,8 @@ def test_fetch_quiz(monkeypatch):
     def mock_parse_content(quizzes: list):
         return ["Quiz 1", "Quiz 2"], ["Answer 1", "Answer 2"]
 
-    monkeypatch.setattr("orm_study.quiz.command.get_chapter", mock_get_chapter)
-    monkeypatch.setattr("orm_study.quiz.command.parse_content", mock_parse_content)
+    monkeypatch.setattr("python_quiz.quiz.command.get_chapter", mock_get_chapter)
+    monkeypatch.setattr("python_quiz.quiz.command.parse_content", mock_parse_content)
 
     quiz_answer_set = fetch_quiz("1", "1")
     assert len(quiz_answer_set) == 2
@@ -91,10 +91,10 @@ def test_start(monkeypatch):
     monkeypatch.setattr("rich.prompt.Prompt.ask", lambda prompt, choices=None: next(inputs))
 
     monkeypatch.setattr(
-        "orm_study.quiz.command.fetch_quiz",
+        "python_quiz.quiz.command.fetch_quiz",
         lambda chapter, type: [("Quiz 1", "Answer 1")],
     )
-    monkeypatch.setattr("orm_study.quiz.command.display_results", lambda chapter, user_answers: None)
+    monkeypatch.setattr("python_quiz.quiz.command.display_results", lambda chapter, user_answers: None)
 
     result = runner.invoke(app, ["start"])
     assert result.exit_code == 0
@@ -105,10 +105,10 @@ def test_exam(monkeypatch):
     monkeypatch.setattr("rich.prompt.Prompt.ask", lambda prompt, choices=None: next(inputs))
 
     monkeypatch.setattr(
-        "orm_study.quiz.command.fetch_exam",
+        "python_quiz.quiz.command.fetch_exam",
         lambda: [("Quiz", "Answer")] * 15,
     )
-    monkeypatch.setattr("orm_study.quiz.command.generate_certification_image", lambda name, user_answers, process_time, save_path: None)
+    monkeypatch.setattr("python_quiz.quiz.command.generate_certification_image", lambda name, user_answers, process_time, save_path: None)
 
     result = runner.invoke(app, ["exam"])
     if result.exception:

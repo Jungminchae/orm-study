@@ -63,7 +63,7 @@ def parse_quiz_file(filepath, chapter, quiz_type, start_id):
 
 
 def main():
-    base_dir = "orm_study/quiz/_python"
+    base_dir = "python_quiz/quiz/_python"
 
     # Optional: we can order chapters or just iterate
     for chapter in os.listdir(base_dir):

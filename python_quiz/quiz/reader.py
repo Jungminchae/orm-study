@@ -3,7 +3,7 @@ from importlib.resources import files
 
 from rich import print
 
-from orm_study.quiz.constants import CHAPTER
+from python_quiz.quiz.constants import CHAPTER
 
 
 def get_chapter(chapter_number: str, _type: str = "1", is_exam: bool = False) -> list[dict]:
@@ -16,7 +16,7 @@ def get_chapter(chapter_number: str, _type: str = "1", is_exam: bool = False) ->
     :return: List of quiz dictionaries
     """
     chapter_name = CHAPTER.get(chapter_number)
-    quiz_path = f"orm_study.quiz._python.{chapter_name}"
+    quiz_path = f"python_quiz.quiz._python.{chapter_name}"
 
     if not chapter_name:
         raise ValueError(f"Invalid chapter number: {chapter_number}")

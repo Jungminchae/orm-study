@@ -1,4 +1,4 @@
-from orm_study.quiz.command import app
+from python_quiz.quiz.command import app
 
 
 def main():

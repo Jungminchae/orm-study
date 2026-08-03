@@ -4,8 +4,8 @@ from typing import Optional
 
 from rich import print
 
-from orm_study.quiz.command import display_results, fetch_quiz, solve_quiz
-from orm_study.quiz.constants import CHAPTER, CHAPTER_CHOICE
+from python_quiz.quiz.command import display_results, fetch_quiz, solve_quiz
+from python_quiz.quiz.constants import CHAPTER, CHAPTER_CHOICE
 
 Select = str | int
 

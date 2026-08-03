@@ -37,8 +37,8 @@ TYPE_CHOICE = """
 MULTIPLE = "multiple_choice.txt"
 SUBJECTIVE = "subjective.txt"
 
-CERTIFICATION_TTF_PATH = "orm_study.quiz._resources"
-CERTIFICATION_IMG_PATH = "orm_study.quiz._resources"
+CERTIFICATION_TTF_PATH = "python_quiz.quiz._resources"
+CERTIFICATION_IMG_PATH = "python_quiz.quiz._resources"
 
 
 CERTIFICATION_TTF_NAME = "PretendardVariable.ttf"

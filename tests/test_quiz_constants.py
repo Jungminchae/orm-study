@@ -1,8 +1,8 @@
 import os
 
-from orm_study.quiz.constants import CHAPTER, CHAPTER_CHOICE
+from python_quiz.quiz.constants import CHAPTER, CHAPTER_CHOICE
 
-CHAPTER_DIRS = os.listdir("orm_study/quiz/_python")
+CHAPTER_DIRS = os.listdir("python_quiz/quiz/_python")
 
 
 def test_check_chapters_all_set() -> None:

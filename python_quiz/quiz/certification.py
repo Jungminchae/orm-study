@@ -4,7 +4,7 @@ from importlib.resources import files
 
 from PIL import Image, ImageDraw, ImageFont
 
-from orm_study.quiz.constants import CERTIFICATION_IMG_PATH, CERTIFICATION_TTF_PATH, CERTIFICATION_IMG_NAME, CERTIFICATION_TTF_NAME
+from python_quiz.quiz.constants import CERTIFICATION_IMG_PATH, CERTIFICATION_TTF_PATH, CERTIFICATION_IMG_NAME, CERTIFICATION_TTF_NAME
 
 
 def _load_font(fontsize) -> ImageFont.FreeTypeFont:

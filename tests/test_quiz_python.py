@@ -1,6 +1,6 @@
 import pytest
 
-from orm_study.quiz.python import PythonQuiz, PythonQuizManager, PythonQuizSelector
+from python_quiz.quiz.python import PythonQuiz, PythonQuizManager, PythonQuizSelector
 
 
 def test_quiz_selector_show() -> None:
