@@ -1,0 +1,282 @@
+[
+  {
+    "id": "ds_01",
+    "chapter": "심화_자료구조",
+    "type": "multiple_choice",
+    "question": "다음 코드의 실행 결과는?\n```python\na = {1, 2, 3}\nb = {3, 4, 5}\nprint(a ^ b)\n```",
+    "options": [
+      "{1, 2, 3, 4, 5}",
+      "{3}",
+      "{1, 2, 4, 5}",
+      "TypeError"
+    ],
+    "answer": "3",
+    "explanation": "^ 연산자는 대칭 차집합(Symmetric Difference)을 의미합니다. 양쪽 집합에 공통으로 있는 3을 제외한 {1, 2, 4, 5}가 출력됩니다."
+  },
+  {
+    "id": "ds_02",
+    "chapter": "심화_자료구조",
+    "type": "multiple_choice",
+    "question": "다음 코드의 출력 결과는?\n```python\nd = {'a': 1, 'b': 2}\nprint(d.get('c', 3))\n```",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "KeyError"
+    ],
+    "answer": "3",
+    "explanation": "get() 메서드는 첫 번째 인자의 키가 딕셔너리에 없으면 두 번째 인자로 전달된 기본값을 반환합니다."
+  },
+  {
+    "id": "ds_03",
+    "chapter": "심화_자료구조",
+    "type": "multiple_choice",
+    "question": "다음 중 올바른 출력 결과는?\n```python\nx, *y, z = (10, 20, 30, 40, 50)\nprint(y)\n```",
+    "options": [
+      "[20, 30, 40]",
+      "(20, 30, 40)",
+      "20",
+      "SyntaxError"
+    ],
+    "answer": "1",
+    "explanation": "* (가변 언패킹)을 사용하면 남은 요소들이 리스트 형태로 할당됩니다. x는 10, z는 50이 되고, y는 [20, 30, 40]이 됩니다."
+  },
+  {
+    "id": "ds_04",
+    "chapter": "심화_자료구조",
+    "type": "multiple_choice",
+    "question": "다음 코드 실행 후 `a`의 값은?\n```python\na = [1, 2, 3]\nb = a\nb.append(4)\nprint(a)\n```",
+    "options": [
+      "[1, 2, 3]",
+      "[1, 2, 3, 4]",
+      "[4]",
+      "Error"
+    ],
+    "answer": "2",
+    "explanation": "파이썬에서 리스트는 가변(mutable) 객체이며, `b = a`는 같은 리스트 객체를 참조합니다. 따라서 b를 수정하면 a도 변경됩니다."
+  },
+  {
+    "id": "ds_05",
+    "chapter": "심화_자료구조",
+    "type": "multiple_choice",
+    "question": "다음 코드의 출력 결과는?\n```python\nimport copy\nx = [[1, 2], [3, 4]]\ny = copy.copy(x)\nx[0][0] = 99\nprint(y[0][0])\n```",
+    "options": [
+      "1",
+      "99",
+      "[[1, 2], [3, 4]]",
+      "Error"
+    ],
+    "answer": "2",
+    "explanation": "얕은 복사(shallow copy)는 최상위 객체만 새로 생성하고 내부의 가변 객체는 원본과 동일한 참조를 가집니다. 따라서 내부 리스트를 수정하면 복사본도 영향을 받습니다."
+  },
+  {
+    "id": "ds_06",
+    "chapter": "심화_자료구조",
+    "type": "multiple_choice",
+    "question": "다음 코드의 결과로 올바른 것은?\n```python\nnums = [1, 2, 3, 4, 5]\nres = [n * 2 for n in nums if n % 2 == 0]\nprint(res)\n```",
+    "options": [
+      "[2, 4, 6, 8, 10]",
+      "[4, 8]",
+      "[2, 6, 10]",
+      "Error"
+    ],
+    "answer": "2",
+    "explanation": "리스트 컴프리헨션에서 if 조건(n % 2 == 0)을 만족하는 요소 2, 4만 선택되어 각각 2를 곱한 [4, 8]이 생성됩니다."
+  },
+  {
+    "id": "ds_07",
+    "chapter": "심화_자료구조",
+    "type": "multiple_choice",
+    "question": "다음 코드 실행 시 출력은?\n```python\nword = 'hello'\nd = {c: word.count(c) for c in set(word)}\nprint(d['l'])\n```",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "KeyError"
+    ],
+    "answer": "2",
+    "explanation": "딕셔너리 컴프리헨션을 이용해 문자열의 각 문자 개수를 센 딕셔너리를 만듭니다. 'hello'에서 'l'은 2번 등장합니다."
+  },
+  {
+    "id": "ds_08",
+    "chapter": "심화_자료구조",
+    "type": "multiple_choice",
+    "question": "다음 코드의 출력은?\n```python\nfrom collections import defaultdict\nd = defaultdict(int)\nd['a'] += 1\nprint(d['a'], d['b'])\n```",
+    "options": [
+      "1 1",
+      "0 0",
+      "1 0",
+      "KeyError"
+    ],
+    "answer": "3",
+    "explanation": "defaultdict에 int 팩토리를 사용하면 존재하지 않는 키 접근 시 0을 기본값으로 반환합니다. 'a'는 1이 더해져 1, 'b'는 0이 됩니다."
+  },
+  {
+    "id": "ds_09",
+    "chapter": "심화_자료구조",
+    "type": "multiple_choice",
+    "question": "다음 코드의 결과는?\n```python\nt = (1, [2, 3])\nt[1].append(4)\nprint(t)\n```",
+    "options": [
+      "TypeError",
+      "(1, [2, 3])",
+      "(1, [2, 3, 4])",
+      "AttributeError"
+    ],
+    "answer": "3",
+    "explanation": "튜플 자체는 불변(immutable)이지만, 튜플 내부의 가변 객체(리스트 등)는 수정이 가능합니다."
+  },
+  {
+    "id": "ds_10",
+    "chapter": "심화_자료구조",
+    "type": "multiple_choice",
+    "question": "다음 중 에러가 발생하는 코드는?\n```python\n# 1. {1: 'a', 2: 'b'}\n# 2. {[1, 2]: 'a'}\n# 3. {(1, 2): 'a'}\n# 4. {'a': [1, 2]}\n```",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "answer": "2",
+    "explanation": "딕셔너리의 키는 해시 가능(hashable)한 불변 객체여야 합니다. 리스트 [1, 2]는 가변 객체이므로 키로 사용할 수 없습니다."
+  },
+  {
+    "id": "ds_11",
+    "chapter": "심화_자료구조",
+    "type": "multiple_choice",
+    "question": "다음 코드의 출력 결과는?\n```python\nset1 = {1, 2, 3}\nset2 = set1\nset2.add(4)\nprint(set1)\n```",
+    "options": [
+      "{1, 2, 3}",
+      "{1, 2, 3, 4}",
+      "{4}",
+      "Error"
+    ],
+    "answer": "2",
+    "explanation": "집합(set) 역시 가변 객체이며 대입 연산자는 참조를 복사합니다. set2의 변경이 set1에 반영됩니다."
+  },
+  {
+    "id": "ds_12",
+    "chapter": "심화_자료구조",
+    "type": "multiple_choice",
+    "question": "다음 딕셔너리 연산의 결과는?\n```python\nd = {'x': 10}\nval = d.setdefault('y', 20)\nprint(val, d['y'])\n```",
+    "options": [
+      "20 20",
+      "None 20",
+      "10 20",
+      "KeyError"
+    ],
+    "answer": "1",
+    "explanation": "setdefault()는 키가 있으면 해당 값을 반환하고, 없으면 두 번째 인자를 딕셔너리에 추가한 뒤 그 값을 반환합니다."
+  },
+  {
+    "id": "ds_13",
+    "chapter": "심화_자료구조",
+    "type": "multiple_choice",
+    "question": "코드 실행 후 출력 결과는?\n```python\nkeys = ['a', 'b', 'c']\nvals = [1, 2, 3]\nd = dict(zip(keys, vals))\nprint(d)\n```",
+    "options": [
+      "{'a': 1, 'b': 2, 'c': 3}",
+      "[('a', 1), ('b', 2), ('c', 3)]",
+      "Error",
+      "None"
+    ],
+    "answer": "1",
+    "explanation": "zip() 함수는 여러 순회 가능한 객체를 묶어 튜플의 이터레이터로 반환하며, 이를 dict()로 변환하면 딕셔너리가 생성됩니다."
+  },
+  {
+    "id": "ds_14",
+    "chapter": "심화_자료구조",
+    "type": "multiple_choice",
+    "question": "다음 코드의 출력은?\n```python\nmatrix = [[1, 2], [3, 4], [5, 6]]\nflat = [num for row in matrix for num in row]\nprint(flat)\n```",
+    "options": [
+      "[[1, 2, 3, 4, 5, 6]]",
+      "[1, 2, 3, 4, 5, 6]",
+      "[[1, 3, 5], [2, 4, 6]]",
+      "SyntaxError"
+    ],
+    "answer": "2",
+    "explanation": "이중 리스트 컴프리헨션에서는 바깥쪽 for문이 먼저 평가되고, 그 다음 안쪽 for문이 평가되어 평탄화된(flattened) 리스트를 만듭니다."
+  },
+  {
+    "id": "ds_15",
+    "chapter": "심화_자료구조",
+    "type": "multiple_choice",
+    "question": "다음 코드의 실행 결과는?\n```python\ndata = [1, 2, 2, 3, 3, 3]\nfrom collections import Counter\nc = Counter(data)\nprint(c.most_common(1))\n```",
+    "options": [
+      "(3, 3)",
+      "[(3, 3)]",
+      "3",
+      "{3: 3}"
+    ],
+    "answer": "2",
+    "explanation": "Counter 객체의 most_common(n) 메서드는 최빈값 n개를 (요소, 개수) 형태의 튜플을 담은 '리스트'로 반환합니다."
+  },
+  {
+    "id": "ds_16",
+    "chapter": "심화_자료구조",
+    "type": "multiple_choice",
+    "question": "다음 코드의 출력 결과는?\n```python\na = frozenset([1, 2, 3])\na.add(4)\nprint(a)\n```",
+    "options": [
+      "{1, 2, 3, 4}",
+      "frozenset({1, 2, 3, 4})",
+      "frozenset({1, 2, 3})",
+      "AttributeError"
+    ],
+    "answer": "4",
+    "explanation": "frozenset은 불변(immutable) 집합이므로 요소를 추가하거나 삭제하는 메서드(add 등)를 가지지 않아 AttributeError가 발생합니다."
+  },
+  {
+    "id": "ds_17",
+    "chapter": "심화_자료구조",
+    "type": "multiple_choice",
+    "question": "다음 결과로 알맞은 것은?\n```python\nd = {'a': 1, 'b': 2, 'c': 3}\nres = {v: k for k, v in d.items()}\nprint(res[2])\n```",
+    "options": [
+      "'a'",
+      "'b'",
+      "'c'",
+      "2"
+    ],
+    "answer": "2",
+    "explanation": "딕셔너리 컴프리헨션을 이용해 키와 값을 뒤집은 새로운 딕셔너리를 생성합니다. 키가 2인 요소의 값은 'b'가 됩니다."
+  },
+  {
+    "id": "ds_18",
+    "chapter": "심화_자료구조",
+    "type": "multiple_choice",
+    "question": "다음 코드의 출력은?\n```python\na = (1, 2)\nb = (3, 4)\nprint(a + b)\n```",
+    "options": [
+      "(4, 6)",
+      "(1, 2, 3, 4)",
+      "((1, 2), (3, 4))",
+      "TypeError"
+    ],
+    "answer": "2",
+    "explanation": "튜플 간의 + 연산자는 요소들의 합이 아니라 두 튜플을 연결(concatenate)하여 새로운 튜플을 반환합니다."
+  },
+  {
+    "id": "ds_19",
+    "chapter": "심화_자료구조",
+    "type": "multiple_choice",
+    "question": "딕셔너리에서 키-값 쌍을 무작위(LIFO in Python 3.7+)로 제거하고 반환하는 메서드는?\n```python\nd = {'x': 1, 'y': 2}\nitem = d._____()\n```",
+    "options": [
+      "remove()",
+      "pop()",
+      "popitem()",
+      "clear()"
+    ],
+    "answer": "3",
+    "explanation": "popitem() 메서드는 딕셔너리에서 마지막으로 삽입된(3.7 이상) 키-값 쌍을 튜플 형태로 제거하고 반환합니다."
+  },
+  {
+    "id": "ds_20",
+    "chapter": "심화_자료구조",
+    "type": "multiple_choice",
+    "question": "코드의 출력 결과는 무엇인가요?\n```python\nimport copy\na = [1, [2, 3]]\nb = copy.deepcopy(a)\na[1].append(4)\nprint(b)\n```",
+    "options": [
+      "[1, [2, 3]]",
+      "[1, [2, 3, 4]]",
+      "[1, [2, 3], 4]",
+      "Error"
+    ],
+    "answer": "1",
+    "explanation": "deepcopy()는 내부에 있는 객체들까지 모두 새롭게 복사하는 깊은 복사를 수행합니다. 원본의 내부 리스트 변경이 복사본에 영향을 주지 않습니다."
+  }
+]

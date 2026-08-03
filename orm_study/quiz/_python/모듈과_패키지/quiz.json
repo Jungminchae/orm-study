@@ -1,0 +1,282 @@
+[
+  {
+    "id": "mp_01",
+    "chapter": "모듈과_패키지",
+    "type": "multiple_choice",
+    "question": "다음 코드의 실행 결과는 무엇인가요? (현재 스크립트를 직접 실행했다고 가정)\n```python\nprint(__name__)\n```",
+    "options": [
+      "__main__",
+      "__name__",
+      "script_name.py",
+      "None"
+    ],
+    "answer": "1",
+    "explanation": "파이썬 스크립트를 직접 실행할 때 내장 변수 __name__은 문자열 '__main__'으로 설정됩니다."
+  },
+  {
+    "id": "mp_02",
+    "chapter": "모듈과_패키지",
+    "type": "multiple_choice",
+    "question": "다음 중 패키지 디렉토리가 파이썬 패키지로 인식되게 하기 위해 필요한 파일은 무엇인가요?\n(Python 3.3 이상에서는 선택사항이지만 전통적인 방식)",
+    "options": [
+      "__package__.py",
+      "__init__.py",
+      "__main__.py",
+      "__module__.py"
+    ],
+    "answer": "2",
+    "explanation": "__init__.py 파일이 디렉토리 내에 있으면 해당 디렉토리를 파이썬 패키지로 인식합니다. 패키지 초기화 코드를 작성할 수도 있습니다."
+  },
+  {
+    "id": "mp_03",
+    "chapter": "모듈과_패키지",
+    "type": "multiple_choice",
+    "question": "모듈 내의 모든 함수와 변수를 현재 네임스페이스로 가져오는 코드는 무엇인가요?",
+    "options": [
+      "import module.*",
+      "import * from module",
+      "from module import *",
+      "include module.*"
+    ],
+    "answer": "3",
+    "explanation": "'from 모듈명 import *' 구문은 모듈 내의 (밑줄로 시작하지 않는) 모든 공개 이름을 현재 네임스페이스로 가져옵니다."
+  },
+  {
+    "id": "mp_04",
+    "chapter": "모듈과_패키지",
+    "type": "multiple_choice",
+    "question": "다음 중 파이썬 모듈 검색 경로 리스트를 확인할 수 있는 코드는 무엇인가요?",
+    "options": [
+      "import sys; print(sys.path)",
+      "import os; print(os.path)",
+      "import sys; print(sys.modules)",
+      "import os; print(os.environ)"
+    ],
+    "answer": "1",
+    "explanation": "sys 모듈의 sys.path 리스트에는 모듈을 검색할 때 참조하는 디렉토리들의 경로가 순서대로 저장되어 있습니다."
+  },
+  {
+    "id": "mp_05",
+    "chapter": "모듈과_패키지",
+    "type": "multiple_choice",
+    "question": "`math` 모듈에서 `pi`만 가져와서 사용하려고 할 때 가장 적절한 import 문은?",
+    "options": [
+      "import math.pi",
+      "from math import pi",
+      "import pi from math",
+      "from pi import math"
+    ],
+    "answer": "2",
+    "explanation": "특정 모듈에서 특정한 어트리뷰트(함수, 변수 등)만 현재 네임스페이스로 가져오려면 'from 모듈 import 요소' 형태를 사용해야 합니다."
+  },
+  {
+    "id": "mp_06",
+    "chapter": "모듈과_패키지",
+    "type": "multiple_choice",
+    "question": "아래와 같이 임포트한 모듈에 별칭을 부여했습니다. 함수 호출로 알맞은 것은?\n```python\nimport random as rd\n```",
+    "options": [
+      "random.randint(1, 10)",
+      "randint(1, 10)",
+      "rd.randint(1, 10)",
+      "random.rd.randint(1, 10)"
+    ],
+    "answer": "3",
+    "explanation": "import ... as 구문을 사용하여 별칭을 지정하면, 원래 이름 대신 별칭을 통해서만 해당 모듈에 접근할 수 있습니다."
+  },
+  {
+    "id": "mp_07",
+    "chapter": "모듈과_패키지",
+    "type": "multiple_choice",
+    "question": "다음 코드에서 `if __name__ == '__main__':` 블록의 주요 목적은 무엇인가요?\n```python\ndef add(a, b):\n    return a + b\n\nif __name__ == '__main__':\n    print(add(2, 3))\n```",
+    "options": [
+      "모듈의 메모리를 절약하기 위해",
+      "다른 파일에서 이 모듈을 import 할 때 실행되지 않게 하려고",
+      "함수의 리턴 속도를 높이기 위해",
+      "전역 변수를 보호하기 위해"
+    ],
+    "answer": "2",
+    "explanation": "다른 모듈에서 import 될 때는 __name__이 모듈명이 되므로 이 블록이 실행되지 않아 테스트 코드나 스크립트 실행용 코드를 분리하는 용도로 쓰입니다."
+  },
+  {
+    "id": "mp_08",
+    "chapter": "모듈과_패키지",
+    "type": "multiple_choice",
+    "question": "파이썬에서 모듈을 임포트 할 때, 이전에 이미 임포트된 모듈은 어떻게 처리되나요?",
+    "options": [
+      "항상 다시 로드(reload)한다.",
+      "메모리에서 이전 모듈을 삭제하고 새로 불러온다.",
+      "sys.modules에 캐시된 객체를 반환하여 재로드하지 않는다.",
+      "에러가 발생한다."
+    ],
+    "answer": "3",
+    "explanation": "임포트 과정에서 모듈은 최초 한 번만 로드되며 sys.modules 딕셔너리에 캐시됩니다. 이후 같은 모듈을 임포트하면 이 캐시된 객체를 사용합니다."
+  },
+  {
+    "id": "mp_09",
+    "chapter": "모듈과_패키지",
+    "type": "multiple_choice",
+    "question": "패키지 안에서 상대 경로(relative import)를 사용할 때 `..`이 의미하는 것은 무엇인가요?",
+    "options": [
+      "현재 디렉토리",
+      "루트 디렉토리",
+      "상위 디렉토리(패키지)",
+      "내장 모듈 디렉토리"
+    ],
+    "answer": "3",
+    "explanation": "상대 임포트에서 하나의 점(.)은 현재 패키지를, 두 개의 점(..)은 상위 패키지(부모 디렉토리)를 의미합니다."
+  },
+  {
+    "id": "mp_10",
+    "chapter": "모듈과_패키지",
+    "type": "multiple_choice",
+    "question": "다음 중 올바른 상대 경로 임포트 구문은 무엇인가요?",
+    "options": [
+      "import .module_a",
+      "import ..module_a",
+      "from . import module_a",
+      "from .module_a"
+    ],
+    "answer": "3",
+    "explanation": "상대 임포트는 반드시 'from' 구문을 사용해야 합니다. 'import' 구문에서는 절대 경로만 허용됩니다."
+  },
+  {
+    "id": "mp_11",
+    "chapter": "모듈과_패키지",
+    "type": "multiple_choice",
+    "question": "`__init__.py` 파일에서 `__all__ = ['module1', 'module2']` 를 정의했을 때의 효과는?",
+    "options": [
+      "패키지 로드 속도를 2배로 올린다.",
+      "'from 패키지 import *'를 사용할 때 임포트할 모듈을 제한한다.",
+      "해당 모듈들만 암호화한다.",
+      "해당 모듈들이 삭제된다."
+    ],
+    "answer": "2",
+    "explanation": "__all__ 리스트는 'from module import *' 구문을 사용할 때 외부에 노출될(임포트될) 이름들의 목록을 지정합니다."
+  },
+  {
+    "id": "mp_12",
+    "chapter": "모듈과_패키지",
+    "type": "multiple_choice",
+    "question": "다음 코드에서 에러가 발생할 가능성이 가장 높은 이유는?\n```python\n# math.py 파일 안에서\nimport math\nprint(math.pi)\n```",
+    "options": [
+      "pi 변수가 math 모듈에 없어서",
+      "import 구문의 철자가 틀려서",
+      "현재 파일의 이름이 math.py라서 표준 라이브러리 math 대신 자기 자신을 임포트하기 때문",
+      "순환 참조 오류(Circular Import) 때문에"
+    ],
+    "answer": "3",
+    "explanation": "sys.path에서 현재 디렉토리가 먼저 검색되므로, 파일명을 표준 모듈 이름(math.py)과 동일하게 만들면 파이썬 내장 math 모듈을 가져오지 못하는 섀도잉(shadowing) 문제가 발생합니다."
+  },
+  {
+    "id": "mp_13",
+    "chapter": "모듈과_패키지",
+    "type": "multiple_choice",
+    "question": "파이썬에서 모듈이란 근본적으로 무엇인가요?",
+    "options": [
+      "C언어로 작성된 실행 파일",
+      "클래스와 함수가 정의된 .py 텍스트 파일",
+      "데이터베이스 파일",
+      "메모리 상의 객체 배열"
+    ],
+    "answer": "2",
+    "explanation": "파이썬에서 모듈은 파이썬 코드를 포함하고 있는 하나의 .py 파일을 의미하며 재사용 가능한 코드의 논리적인 묶음입니다."
+  },
+  {
+    "id": "mp_14",
+    "chapter": "모듈과_패키지",
+    "type": "multiple_choice",
+    "question": "순환 임포트(Circular Import) 문제를 해결하는 방법 중 하나로 가장 적절한 것은?",
+    "options": [
+      "모든 모듈의 이름을 변경한다.",
+      "import 문을 모듈의 최상단이 아닌 함수 내부로 이동시킨다.",
+      "항상 'from module import *'를 사용한다.",
+      "sys.path를 비운다."
+    ],
+    "answer": "2",
+    "explanation": "순환 임포트를 회피하기 위해 import 문을 모듈 스코프가 아니라 해당 모듈이 실제로 필요한 함수나 메서드 내부(지연 임포트)로 이동시키는 방법을 사용할 수 있습니다."
+  },
+  {
+    "id": "mp_15",
+    "chapter": "모듈과_패키지",
+    "type": "multiple_choice",
+    "question": "`import urllib.request` 를 실행했을 때, `urllib`는 무엇인가요?",
+    "options": [
+      "함수",
+      "클래스",
+      "패키지(디렉토리)",
+      "변수"
+    ],
+    "answer": "3",
+    "explanation": "점(.) 표기법을 사용하여 임포트할 때, 앞의 이름(urllib)은 패키지를 의미하고 뒤의 이름(request)은 그 패키지 내의 하위 모듈을 의미합니다."
+  },
+  {
+    "id": "mp_16",
+    "chapter": "모듈과_패키지",
+    "type": "multiple_choice",
+    "question": "이미 로드된 모듈의 코드가 변경되었을 때, 이를 파이썬 세션에서 다시 불러오기 위해 사용하는 함수는?",
+    "options": [
+      "importlib.reload()",
+      "sys.refresh()",
+      "os.reload()",
+      "module.reload()"
+    ],
+    "answer": "1",
+    "explanation": "파이썬 3.4 이후부터는 importlib 모듈의 reload() 함수를 사용하여 이미 메모리에 캐시된 모듈을 명시적으로 다시 로드할 수 있습니다."
+  },
+  {
+    "id": "mp_17",
+    "chapter": "모듈과_패키지",
+    "type": "multiple_choice",
+    "question": "표준 라이브러리 `datetime` 모듈의 `datetime` 클래스만 사용할 수 있도록 임포트 하는 올바른 방법은?",
+    "options": [
+      "import datetime",
+      "import datetime.datetime",
+      "from datetime import datetime",
+      "include datetime.datetime"
+    ],
+    "answer": "3",
+    "explanation": "from 패키지/모듈 import 클래스/함수 형태를 사용하여 datetime 모듈 내의 datetime 클래스를 현재 네임스페이스로 바로 가져올 수 있습니다."
+  },
+  {
+    "id": "mp_18",
+    "chapter": "모듈과_패키지",
+    "type": "multiple_choice",
+    "question": "다음 중 파이썬 내장 모듈이 아닌 것은?",
+    "options": [
+      "os",
+      "sys",
+      "math",
+      "numpy"
+    ],
+    "answer": "4",
+    "explanation": "os, sys, math는 파이썬 설치 시 기본으로 제공되는 표준 라이브러리(내장 모듈)이며, numpy는 pip 등을 통해 별도로 설치해야 하는 외부 패키지입니다."
+  },
+  {
+    "id": "mp_19",
+    "chapter": "모듈과_패키지",
+    "type": "multiple_choice",
+    "question": "스크립트를 `python -m http.server` 형태로 실행할 때 `-m` 옵션의 역할은 무엇인가요?",
+    "options": [
+      "메모리 제한을 해제한다.",
+      "지정된 모듈을 파이썬 경로에서 찾아 스크립트(__main__)로 실행한다.",
+      "다중 스레드로 실행한다.",
+      "설치된 모듈을 제거한다."
+    ],
+    "answer": "2",
+    "explanation": "파이썬 인터프리터의 -m 옵션은 sys.path에서 해당 이름의 모듈이나 패키지를 찾아 그것을 메인 모듈(__main__)로서 실행하게 합니다."
+  },
+  {
+    "id": "mp_20",
+    "chapter": "모듈과_패키지",
+    "type": "multiple_choice",
+    "question": "패키지 내 특정 모듈을 임포트하면, 해당 패키지의 어떤 파일이 암시적으로 먼저 실행되나요?",
+    "options": [
+      "__main__.py",
+      "__init__.py",
+      "__setup__.py",
+      "__run__.py"
+    ],
+    "answer": "2",
+    "explanation": "패키지 내의 모듈을 처음 임포트할 때, 파이썬은 패키지 초기화를 위해 패키지 디렉토리에 있는 __init__.py 파일을 먼저 실행합니다."
+  }
+]
