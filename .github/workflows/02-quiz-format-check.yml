@@ -13,6 +13,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
       - name: Setup python
         uses: actions/setup-python@v5
         with:
@@ -20,4 +22,4 @@ jobs:
 
       - name: Run format check
         run: |
-          python scripts/quiz_format_checker.py python_quiz/quiz/_python
+          uv run python scripts/quiz_format_checker.py python_quiz/quiz/_python
