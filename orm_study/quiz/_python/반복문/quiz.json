@@ -1,0 +1,282 @@
+[
+  {
+    "id": "loop_01",
+    "chapter": "반복문",
+    "type": "multiple_choice",
+    "question": "다음 코드의 출력 결과로 올바른 것은 무엇인가요?\n```python\nfor i in range(5, 0, -2):\n    print(i, end=' ')\n```",
+    "options": [
+      "5 3 1",
+      "5 4 3 2 1",
+      "3 1",
+      "에러 발생"
+    ],
+    "answer": "1",
+    "explanation": "range(start, stop, step)에서 start=5, stop=0, step=-2입니다. 5부터 시작해 2씩 감소하며 0 전까지 반복하므로 5, 3, 1이 출력됩니다."
+  },
+  {
+    "id": "loop_02",
+    "chapter": "반복문",
+    "type": "multiple_choice",
+    "question": "다음 코드의 출력 결과는 무엇인가요?\n```python\nx = 0\nwhile x < 3:\n    x += 1\nelse:\n    print(x)\n```",
+    "options": [
+      "2",
+      "3",
+      "출력 없이 종료",
+      "에러 발생"
+    ],
+    "answer": "2",
+    "explanation": "while 루프가 break 없이 정상적으로 끝까지 실행되면 else 블록이 실행됩니다. x가 3이 되어 조건이 False가 될 때 루프를 빠져나와 else 블록에서 3을 출력합니다."
+  },
+  {
+    "id": "loop_03",
+    "chapter": "반복문",
+    "type": "multiple_choice",
+    "question": "다음 코드의 출력 결과는 무엇인가요?\n```python\nfor i in range(3):\n    if i == 1:\n        break\nelse:\n    print('Done')\nprint(i)\n```",
+    "options": [
+      "Done\\n1",
+      "Done\\n2",
+      "1",
+      "2"
+    ],
+    "answer": "3",
+    "explanation": "i가 1일 때 break를 만나 루프를 빠져나갑니다. break로 종료되었으므로 else 블록은 실행되지 않습니다. 따라서 마지막에 i의 값인 1만 출력됩니다."
+  },
+  {
+    "id": "loop_04",
+    "chapter": "반복문",
+    "type": "multiple_choice",
+    "question": "다음 중 무한 루프(Infinite loop)에 빠지는 코드는 무엇인가요?",
+    "options": [
+      "while True:\n    break",
+      "x = 10\nwhile x > 0:\n    x -= 1",
+      "i = 0\nwhile i < 5:\n    i += 0",
+      "for i in iter(int, 1):\n    break"
+    ],
+    "answer": "3",
+    "explanation": "3번 코드는 i에 0을 계속 더하므로 i값이 변하지 않아 `i < 5` 조건이 항상 참이 되어 무한 루프에 빠집니다."
+  },
+  {
+    "id": "loop_05",
+    "chapter": "반복문",
+    "type": "multiple_choice",
+    "question": "다음 코드의 실행 후 `res` 리스트의 내용은 무엇인가요?\n```python\nnums = [1, 2, 3]\nres = [x * 2 for x in nums if x % 2 == 1]\n```",
+    "options": [
+      "[2, 4, 6]",
+      "[2, 6]",
+      "[1, 3]",
+      "[4]"
+    ],
+    "answer": "2",
+    "explanation": "리스트 컴프리헨션에서 `x % 2 == 1`을 만족하는 값은 1과 3입니다. 이 값들에 대해 `x * 2`를 수행하므로 결과는 [2, 6]이 됩니다."
+  },
+  {
+    "id": "loop_06",
+    "chapter": "반복문",
+    "type": "multiple_choice",
+    "question": "다음 코드의 출력 결과는 무엇인가요?\n```python\nlst = [10, 20, 30]\nfor i, val in enumerate(lst, start=1):\n    if i == 2:\n        print(val)\n```",
+    "options": [
+      "10",
+      "20",
+      "30",
+      "IndexError"
+    ],
+    "answer": "2",
+    "explanation": "enumerate의 start=1이므로 i는 1부터 시작합니다. i=1일 때 val=10, i=2일 때 val=20입니다. i가 2일 때 20을 출력합니다."
+  },
+  {
+    "id": "loop_07",
+    "chapter": "반복문",
+    "type": "multiple_choice",
+    "question": "다음 코드 실행 후 `total`의 값은 무엇인가요?\n```python\ntotal = 0\nfor i in range(2):\n    for j in range(2):\n        if i == j:\n            continue\n        total += i + j\n```",
+    "options": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ],
+    "answer": "3",
+    "explanation": "i=0, j=0 (continue). i=0, j=1 (total += 1). i=1, j=0 (total += 1, total=2). i=1, j=1 (continue). 최종 total 값은 2가 됩니다. 잠깐, 답을 수정하겠습니다. i=0,j=1(total+=1). i=1,j=0(total+=1). 결과는 2입니다. 따라서 3번이 정답입니다."
+  },
+  {
+    "id": "loop_08",
+    "chapter": "반복문",
+    "type": "multiple_choice",
+    "question": "반복문을 도는 중 컬렉션의 크기를 변경하면 어떤 문제가 발생할 수 있는지 보여주는 다음 코드의 결과는?\n```python\nitems = [1, 2, 3, 4]\nfor item in items:\n    if item % 2 == 0:\n        items.remove(item)\nprint(items)\n```",
+    "options": [
+      "[1, 3]",
+      "[1, 2, 3]",
+      "[1, 3, 4]",
+      "[2, 4]"
+    ],
+    "answer": "1",
+    "explanation": "item=1 (넘어감). item=2 (조건 만족, remove(2)). 이때 items는 [1, 3, 4]가 되고 다음 인덱스는 2가 됩니다. 인덱스 2의 값은 4이므로 3은 검사하지 않고 건너뜁니다. item=4 (조건 만족, remove(4)). 최종 items는 [1, 3]이 됩니다. 정답 1번."
+  },
+  {
+    "id": "loop_09",
+    "chapter": "반복문",
+    "type": "multiple_choice",
+    "question": "다음 코드의 출력 결과로 올바른 것은?\n```python\na = 'py'\nb = '123'\nres = [x+y for x in a for y in b]\nprint(len(res))\n```",
+    "options": [
+      "2",
+      "3",
+      "5",
+      "6"
+    ],
+    "answer": "4",
+    "explanation": "중첩 리스트 컴프리헨션은 중첩 for문과 같습니다. len(a)=2, len(b)=3이므로 모든 조합의 수는 2 * 3 = 6개입니다."
+  },
+  {
+    "id": "loop_10",
+    "chapter": "반복문",
+    "type": "multiple_choice",
+    "question": "다음 중 딕셔너리 순회 방법에 대한 설명으로 틀린 것은?",
+    "options": [
+      "for k in d: 는 딕셔너리의 키를 순회한다.",
+      "for v in d.values(): 는 딕셔너리의 값을 순회한다.",
+      "for k, v in d.items(): 는 키와 값을 튜플로 순회한다.",
+      "for k, v in d: 는 키와 값을 언패킹하여 순회한다."
+    ],
+    "answer": "4",
+    "explanation": "딕셔너리를 그냥 순회하면 키만 반환되므로 `for k, v in d:`는 키 문자열(또는 객체)을 언패킹하려 시도하다가 에러(ValueError)를 발생시킬 가능성이 높습니다. items()를 사용해야 합니다."
+  },
+  {
+    "id": "loop_11",
+    "chapter": "반복문",
+    "type": "multiple_choice",
+    "question": "다음 코드의 결과는 무엇인가요?\n```python\nfor i in range(1, 10):\n    pass\nprint(i)\n```",
+    "options": [
+      "1",
+      "9",
+      "10",
+      "NameError"
+    ],
+    "answer": "2",
+    "explanation": "for 루프에서 사용된 변수 i는 루프가 끝난 후에도 마지막 값으로 유지됩니다. range(1, 10)의 마지막 원소는 9이므로 9가 출력됩니다."
+  },
+  {
+    "id": "loop_12",
+    "chapter": "반복문",
+    "type": "multiple_choice",
+    "question": "zip() 함수를 사용한 다음 코드의 출력은?\n```python\nx = [1, 2, 3]\ny = ['a', 'b']\nfor a, b in zip(x, y):\n    print(a, end='')\n```",
+    "options": [
+      "123",
+      "12",
+      "ab",
+      "에러 발생"
+    ],
+    "answer": "2",
+    "explanation": "zip()은 가장 짧은 이터러블의 길이에 맞춥니다. y의 길이가 2이므로 두 번만 반복되어 1과 2가 출력됩니다."
+  },
+  {
+    "id": "loop_13",
+    "chapter": "반복문",
+    "type": "multiple_choice",
+    "question": "다음 while 루프는 몇 번 실행될까요?\n```python\nn = 5\nwhile n:\n    n -= 1\n```",
+    "options": [
+      "4번",
+      "5번",
+      "6번",
+      "무한 루프"
+    ],
+    "answer": "2",
+    "explanation": "n이 5부터 1까지일 때 루프 안으로 진입합니다(5번). n이 0이 되면 조건이 거짓(Falsy)으로 평가되어 종료됩니다."
+  },
+  {
+    "id": "loop_14",
+    "chapter": "반복문",
+    "type": "multiple_choice",
+    "question": "다음을 출력하는 코드로 알맞은 것은?\n```\n*\n**\n***\n```",
+    "options": [
+      "for i in range(1, 4): print('*' * i)",
+      "for i in range(3): print('*' * i)",
+      "for i in range(1, 3): print('*' * i)",
+      "for i in range(4): print('*' * (i+1))"
+    ],
+    "answer": "1",
+    "explanation": "range(1, 4)는 1, 2, 3을 생성하므로 '*'문자열을 1개, 2개, 3개 출력하게 됩니다. 2번은 0, 1, 2개를 출력합니다."
+  },
+  {
+    "id": "loop_15",
+    "chapter": "반복문",
+    "type": "multiple_choice",
+    "question": "다음 중 break와 continue에 대한 설명으로 옳은 것은?",
+    "options": [
+      "break는 현재 순회를 건너뛰고 다음 순회로 넘어간다.",
+      "continue는 자신을 감싼 가장 가까운 루프를 완전히 종료한다.",
+      "break는 다중 중첩 루프에서 모든 루프를 한 번에 빠져나온다.",
+      "continue를 만나면 루프 블록의 남은 코드를 실행하지 않고 다음 반복을 시작한다."
+    ],
+    "answer": "4",
+    "explanation": "continue는 현재 반복의 남은 부분을 건너뛰고 다음 반복으로 넘어갑니다. break는 가장 가까운 루프 하나만 종료시킵니다."
+  },
+  {
+    "id": "loop_16",
+    "chapter": "반복문",
+    "type": "multiple_choice",
+    "question": "다음 코드에서 'hello'는 몇 번 출력되는가?\n```python\ni = 0\nwhile i < 3:\n    for j in range(2):\n        print('hello')\n    i += 1\n```",
+    "options": [
+      "3번",
+      "5번",
+      "6번",
+      "8번"
+    ],
+    "answer": "3",
+    "explanation": "외부 while 루프가 3번(i=0, 1, 2) 반복되고, 내부 for 루프가 각각 2번(j=0, 1) 반복되므로 총 3 * 2 = 6번 출력됩니다."
+  },
+  {
+    "id": "loop_17",
+    "chapter": "반복문",
+    "type": "multiple_choice",
+    "question": "다음 딕셔너리 컴프리헨션의 결과는 무엇인가요?\n```python\nd = {x: x**2 for x in range(3)}\n```",
+    "options": [
+      "{0: 0, 1: 1, 2: 4}",
+      "{1: 1, 2: 4, 3: 9}",
+      "[0, 1, 4]",
+      "{0, 1, 4}"
+    ],
+    "answer": "1",
+    "explanation": "range(3)은 0, 1, 2를 반환하므로 키는 0, 1, 2이고 값은 그 제곱인 0, 1, 4가 매핑된 딕셔너리가 생성됩니다."
+  },
+  {
+    "id": "loop_18",
+    "chapter": "반복문",
+    "type": "multiple_choice",
+    "question": "다음 코드를 실행했을 때 발생하는 문제는 무엇인가요?\n```python\nlst = [1, 2, 3]\nfor i in range(4):\n    print(lst[i])\n```",
+    "options": [
+      "ValueError",
+      "SyntaxError",
+      "IndexError",
+      "정상 출력"
+    ],
+    "answer": "3",
+    "explanation": "리스트의 인덱스는 0, 1, 2까지만 존재하는데 루프가 i=3일 때 lst[3]에 접근하려 하므로 IndexError가 발생합니다."
+  },
+  {
+    "id": "loop_19",
+    "chapter": "반복문",
+    "type": "multiple_choice",
+    "question": "다음 코드의 출력 결과는?\n```python\nword = 'abc'\nfor i in word:\n    if i == 'b':\n        word = 'def'\n    print(i, end='')\n```",
+    "options": [
+      "abc",
+      "ade",
+      "adef",
+      "무한루프"
+    ],
+    "answer": "1",
+    "explanation": "문자열(word)을 순회하는 반복자는 시작 시점의 문자열 객체('abc')를 기준으로 합니다. 도중에 변수 word가 다른 객체를 가리키도록 변경해도 원래 순회하던 'abc' 이터러블은 영향을 받지 않습니다."
+  },
+  {
+    "id": "loop_20",
+    "chapter": "반복문",
+    "type": "multiple_choice",
+    "question": "파이썬 3.8부터 추가된 바다코끼리 연산자(:=)를 사용한 루프입니다. 출력 결과는?\n```python\nn = 3\nwhile (n := n - 1) > 0:\n    print(n, end='')\n```",
+    "options": [
+      "321",
+      "21",
+      "210",
+      "32"
+    ],
+    "answer": "2",
+    "explanation": "조건식에서 1이 먼저 감소되어 평가됩니다. 처음에 2가 되고 >0을 만족하므로 2 출력, 그 다음 1이 되고 >0 만족 1 출력. 그 다음 0이 되어 조건 불만족으로 종료됩니다."
+  }
+]

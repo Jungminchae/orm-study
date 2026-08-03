@@ -1,0 +1,142 @@
+[
+  {
+    "id": "q1",
+    "chapter": "조건문",
+    "type": "multiple_choice",
+    "question": "다음 중 파이썬에서 조건문을 실행할 때 사용할 수 있는 키워드가 아닌 것은?",
+    "options": [
+      "if",
+      "else",
+      "else if",
+      "elif"
+    ],
+    "answer": "3",
+    "explanation": ""
+  },
+  {
+    "id": "q2",
+    "chapter": "조건문",
+    "type": "multiple_choice",
+    "question": "다음 중 파이썬 3.10버젼에서 조건문의 표현식이 잘 못된 것은?",
+    "options": [
+      "if a ==1:...",
+      "if a :=1 ==1:...",
+      "if a = 1:...",
+      "if a <=1:..."
+    ],
+    "answer": "3",
+    "explanation": ""
+  },
+  {
+    "id": "q3",
+    "chapter": "조건문",
+    "type": "multiple_choice",
+    "question": "다음 코드의 출력 결과로 옳은 것은?\n\nx = 10\nif x > 5:\n    print(\"크다\")\nelse:\n    print(\"작다\")",
+    "options": [
+      "크다",
+      "작다",
+      "에러",
+      "출력없음"
+    ],
+    "answer": "1",
+    "explanation": ""
+  },
+  {
+    "id": "q4",
+    "chapter": "조건문",
+    "type": "multiple_choice",
+    "question": "다음 중 파이썬에서 조건문을 올바르게 사용하는 예제는?",
+    "options": [
+      "if a == b:",
+      "if a = b",
+      "if (a == b)",
+      "if a <== b"
+    ],
+    "answer": "1",
+    "explanation": ""
+  },
+  {
+    "id": "q5",
+    "chapter": "조건문",
+    "type": "multiple_choice",
+    "question": "다음 코드의 출력 결과로 옳은 것은?\n\na = 15\nif a < 10:\n    print(\"10 보다 작다\")\nelif a < 20:\n    print(\"20 보다 작다\")\nelse:\n    print(\"20이거나 20보다 크다\")",
+    "options": [
+      "10 보다 작다",
+      "20 보다 작다",
+      "20이거나 20보다 크다",
+      "출력 없음"
+    ],
+    "answer": "2",
+    "explanation": ""
+  },
+  {
+    "id": "q6",
+    "chapter": "조건문",
+    "type": "multiple_choice",
+    "question": "다음 코드의 출력 결과는 무엇입니까?\n\nscore = 85\nif score >= 90:\n    grade = 'A'\nelif score >= 80:\n    grade = 'B'\nelse:\n    grade = 'C'\nprint(grade)",
+    "options": [
+      "A",
+      "C",
+      "B",
+      "에러"
+    ],
+    "answer": "3",
+    "explanation": ""
+  },
+  {
+    "id": "q7",
+    "chapter": "조건문",
+    "type": "multiple_choice",
+    "question": "다음 코드의 결과로 출력되는 값은 무엇입니까?\n\nx = 10\nif x > 5:\n    if x == 10:\n        print(\"10\")\n    elif x > 10:\n        print(\"10보다 큼\")\n    else:\n        print(\"10보다 작음\")\nelse:\n    print(\"5보다 작거나 같음\")",
+    "options": [
+      "10",
+      "10보다 큼",
+      "10보다 작음",
+      "5보다 작거나 같음"
+    ],
+    "answer": "1",
+    "explanation": ""
+  },
+  {
+    "id": "q8",
+    "chapter": "조건문",
+    "type": "multiple_choice",
+    "question": "다음 조건문에서 if 조건이 참이 되는 경우는 무엇인가요?\n\nif x and not y:\n    print(\"True\")\nelse:\n    print(\"False\")",
+    "options": [
+      "x가 0이고 y가 1일 때",
+      "x가 1이고 y가 1일 때",
+      "x가 0이고 y가 0일 때",
+      "x가 1이고 y가 0일 때"
+    ],
+    "answer": "4",
+    "explanation": ""
+  },
+  {
+    "id": "q9",
+    "chapter": "조건문",
+    "type": "multiple_choice",
+    "question": "다음 중 조건문에 대한 설명으로 틀린 것은?",
+    "options": [
+      "if 문은 조건이 참일 때 실행되는 코드 블록을 정의합니다.",
+      "else 문은 앞에 나열된 조건이 모두 거짓일 때 실행되는 코드 블록을 정의합니다.",
+      "elif 문은 여러 조건을 검사할 때 사용되며 1개의 if 문에는 1개의 elif문만 사용합니다.",
+      "if와 else를 사용하여 삼항연사자를 구현할 수 있습니다."
+    ],
+    "answer": "3",
+    "explanation": ""
+  },
+  {
+    "id": "q10",
+    "chapter": "조건문",
+    "type": "multiple_choice",
+    "question": "다음 중 조건문에 대한 설명으로 맞는 것은?",
+    "options": [
+      "if 문은 반드시 else 문과 함께 사용해야 합니다.",
+      "elif 문은 여러 번 사용할 수 없으며, 한 번만 사용 가능합니다.",
+      "조건문은 깔끔하게 코드를 관리하기 위해 중첩 사용이 불가능하게 설계되어 있습니다.",
+      "조건문을 구현하기 위해 if대신 match, case를 사용하여 구현할 수도 있습니다."
+    ],
+    "answer": "4",
+    "explanation": ""
+  }
+]

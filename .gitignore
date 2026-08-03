@@ -177,3 +177,5 @@ mysql-init/
 temp.json
 
 example.db
+docs/
+_workspace/

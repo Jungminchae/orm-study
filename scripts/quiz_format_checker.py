@@ -1,42 +1,37 @@
 import os
-import re
+import json
 import sys
 
 
 def check_format(file_path: str) -> list[str]:
-    with open(file_path, encoding="utf-8") as f:
-        lines = f.readlines()
-
-    pattern_question = re.compile(r"^\..+")
-    pattern_empty_line = re.compile(r"^\s*$")
-    pattern_answer = re.compile(r"^답\.\d$")
-    pattern_separator = re.compile(r"^---$")
-
     errors = []
+    try:
+        with open(file_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except json.JSONDecodeError as e:
+        return [f"File: {file_path}: Invalid JSON - {str(e)}"]
 
-    i = 0
-    while i < len(lines):
-        if not pattern_question.match(lines[i]):
-            errors.append(f"File: {file_path}, Line {i + 1}: Question must start with a dot.")
+    if not isinstance(data, list):
+        return [f"File: {file_path}: Root should be a JSON array."]
 
-        i += 1
-        if i >= len(lines) or not pattern_empty_line.match(lines[i]):
-            errors.append(f"File: {file_path}, Line {i + 1}: There must be an empty line after the question.")
+    required_keys = {"id", "chapter", "type", "question", "answer"}
 
-        i += 1
-        answer_found = False
-        while i < len(lines) and not pattern_separator.match(lines[i]):
-            if pattern_answer.match(lines[i]):
-                answer_found = True
-            i += 1
+    for idx, item in enumerate(data):
+        if not isinstance(item, dict):
+            errors.append(f"File: {file_path}, Item {idx}: Must be a JSON object.")
+            continue
 
-        if not answer_found:
-            errors.append(f"File: {file_path}, Line {i + 1}: Missing or incorrect answer format. Answer must start with '답.'")
+        missing_keys = required_keys - set(item.keys())
+        if missing_keys:
+            errors.append(f"File: {file_path}, Item {idx}: Missing required keys {missing_keys}.")
 
-        if i >= len(lines) or not pattern_separator.match(lines[i]):
-            errors.append(f"File: {file_path}, Line {i + 1}: Must be followed by '---'")
+        # Additional format checks
+        if "type" in item:
+            if item["type"] not in ["multiple_choice", "subjective"]:
+                errors.append(f"File: {file_path}, Item {idx}: 'type' must be 'multiple_choice' or 'subjective'.")
 
-        i += 1
+            if item["type"] == "multiple_choice" and "options" not in item:
+                errors.append(f"File: {file_path}, Item {idx}: Missing 'options' for multiple_choice.")
 
     return errors
 
@@ -45,7 +40,7 @@ def find_and_check_files(root_dir: str) -> list[str]:
     all_errors = []
     for subdir, _, files in os.walk(root_dir):
         for file in files:
-            if file == "multiple_choice.txt":
+            if file == "quiz.json":
                 file_path = os.path.join(subdir, file)
                 errors = check_format(file_path)
                 all_errors.extend(errors)
@@ -54,7 +49,7 @@ def find_and_check_files(root_dir: str) -> list[str]:
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print("Usage: python check_format.py <root_directory>")
+        print("Usage: python quiz_format_checker.py <root_directory>")
         sys.exit(1)
 
     root_directory = sys.argv[1]

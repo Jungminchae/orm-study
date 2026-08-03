@@ -1,21 +1,19 @@
+import json
 from importlib.resources import files
 
 from rich import print
 
-from orm_study.quiz.constants import CHAPTER, MULTIPLE, SUBJECTIVE
+from orm_study.quiz.constants import CHAPTER
 
 
-def get_chapter(chapter_number: str, _type: str = "1", is_exam: bool = False) -> str | tuple[str, str]:
+def get_chapter(chapter_number: str, _type: str = "1", is_exam: bool = False) -> list[dict]:
     """
-    get quiz from quiz text file.
+    get quiz from quiz JSON file.
 
     :param chapter_number: chapter_number ∈ CHAPTER
-    :param _type: _type ∈ TYPE
+    :param _type: _type ∈ TYPE (1: 객관식, 2: 주관식, 3: 혼합)
     :param is_exam: True if exam mode
-
-    :raises:`ValueError`: chapter_number not in CHAPTER or _type not in TYPE
-
-    :return: quiz_txt or quiz_txt + quiz_txt
+    :return: List of quiz dictionaries
     """
     chapter_name = CHAPTER.get(chapter_number)
     quiz_path = f"orm_study.quiz._python.{chapter_name}"
@@ -23,47 +21,50 @@ def get_chapter(chapter_number: str, _type: str = "1", is_exam: bool = False) ->
     if not chapter_name:
         raise ValueError(f"Invalid chapter number: {chapter_number}")
 
-    if _type == "1":
-        return _get_multiple(quiz_path)
-    elif _type == "2":
-        try:
-            return _get_subjective(quiz_path)
-        except FileNotFoundError:
-            if not is_exam:
-                print("[red bold]객관식 문제가 없습니다. \n주관식 문제만 출제합니다.ㅠㅠ")
-            return _get_multiple(quiz_path)
-    elif _type == "3":
-        multiple = _get_multiple(quiz_path)
-        try:
-            subjective = _get_subjective(quiz_path)
-            return multiple + subjective
-        except FileNotFoundError:
-            if not is_exam:
-                print("[red bold]주관식 문제가 없습니다. \n객관식 문제만 출제합니다.ㅠㅠ")
-            return multiple
-    else:
-        raise ValueError(f"Invalid type number: {_type}")
+    json_path = files(quiz_path).joinpath("quiz.json")
+    try:
+        with open(json_path, encoding="utf-8") as f:
+            quizzes = json.load(f)
+    except FileNotFoundError:
+        return []
+
+    filtered = []
+    has_subjective = False
+
+    for q in quizzes:
+        if q.get("type") == "multiple_choice":
+            if _type in ("1", "3"):
+                filtered.append(q)
+        elif q.get("type") == "subjective":
+            has_subjective = True
+            if _type in ("2", "3"):
+                filtered.append(q)
+
+    if _type == "2" and not has_subjective:
+        if not is_exam:
+            print("[red bold]주관식 문제가 없습니다. \n객관식 문제만 출제합니다.ㅠㅠ")
+        for q in quizzes:
+            if q.get("type") == "multiple_choice":
+                filtered.append(q)
+
+    elif _type == "3" and not has_subjective:
+        if not is_exam:
+            print("[red bold]주관식 문제가 없습니다. \n객관식 문제만 출제합니다.ㅠㅠ")
+
+    return filtered
 
 
-def _get_multiple(quiz_path: str) -> str:
-    multiple_path = files(quiz_path).joinpath(MULTIPLE)
-    with open(multiple_path, encoding="utf-8") as multiple_file:
-        return multiple_file.read()
-
-
-def _get_subjective(quiz_path: str) -> str:
-    subjective_path = files(quiz_path).joinpath(SUBJECTIVE)
-    with open(subjective_path, encoding="utf-8") as subjective_file:
-        return subjective_file.read()
-
-
-def parse_content(contents: str) -> tuple[list[str], list[str]]:
-    quizes = []
+def parse_content(quizzes: list[dict]) -> tuple[list[str], list[str]]:
+    formatted_quizzes = []
     answers = []
 
-    contents = contents.split("---")[:-1]
-    for content in contents:
-        quiz, answer = content.split("답.")
-        quizes.append(quiz.lstrip())
-        answers.append(answer.replace("\n", ""))
-    return quizes, answers
+    for q in quizzes:
+        question_text = f"\n.{q['question']}\n\n"
+        if q.get("type") == "multiple_choice" and q.get("options"):
+            for i, opt in enumerate(q["options"], 1):
+                question_text += f"{i}. {opt}\n"
+
+        formatted_quizzes.append(question_text.rstrip())
+        answers.append(str(q["answer"]).strip())
+
+    return formatted_quizzes, answers

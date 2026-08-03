@@ -8,23 +8,12 @@ from orm_study.quiz.command import (
     fetch_exam,
     fetch_quiz,
     select_chapter,
-    select_exam_mode,
     select_quiz_num,
     select_quiz_type,
     solve_quiz,
 )
 
 runner = CliRunner()
-
-
-def test_select_exam_mode_on(monkeypatch):
-    monkeypatch.setattr("rich.prompt.Prompt.ask", lambda prompt: "Y")
-    assert select_exam_mode()
-
-
-def test_select_exam_mode_off(monkeypatch):
-    monkeypatch.setattr("rich.prompt.Prompt.ask", lambda prompt: "")
-    assert not select_exam_mode()
 
 
 def test_select_chapter_valid(monkeypatch):
@@ -55,16 +44,16 @@ def test_select_quiz_num_valid(monkeypatch):
 
 
 def test_select_quiz_num_exceeding(monkeypatch):
-    inputs = iter(["6", "4"])  # 첫 번째 입력이 초과, 두 번째 입력은 유효
+    inputs = iter(["6", "4"])
     monkeypatch.setattr("rich.prompt.Prompt.ask", lambda prompt: next(inputs))
     assert select_quiz_num(5) == 4
 
 
 def test_fetch_quiz(monkeypatch):
-    def mock_get_chapter(chapter_number: str, _type: str):
-        return "Quiz 1\nAnswer 1\nQuiz 2\nAnswer 2"
+    def mock_get_chapter(chapter_number: str, _type: str, is_exam: bool = False):
+        return [{"question": "Quiz 1", "answer": "Answer 1"}, {"question": "Quiz 2", "answer": "Answer 2"}]
 
-    def mock_parse_content(quiz_txt: str):
+    def mock_parse_content(quizzes: list):
         return ["Quiz 1", "Quiz 2"], ["Answer 1", "Answer 2"]
 
     monkeypatch.setattr("orm_study.quiz.command.get_chapter", mock_get_chapter)
@@ -98,10 +87,8 @@ def test_display_results(capfd):
 
 
 def test_start(monkeypatch):
-    inputs = iter(["n", "a", "1", "1", "1", "Answer 1"])
-    monkeypatch.setattr("rich.prompt.Prompt.ask", lambda prompt, choices=None: next(inputs))  # choices 추가
-    monkeypatch.setattr("rich.prompt.Prompt.ask", lambda prompt, choices=None: next(inputs))  # choices 추가
-    monkeypatch.setattr("rich.prompt.Prompt.ask", lambda prompt, choices=None: next(inputs))  # choices 추가
+    inputs = iter(["1", "1", "1", "Answer 1"])
+    monkeypatch.setattr("rich.prompt.Prompt.ask", lambda prompt, choices=None: next(inputs))
 
     monkeypatch.setattr(
         "orm_study.quiz.command.fetch_quiz",
@@ -109,5 +96,21 @@ def test_start(monkeypatch):
     )
     monkeypatch.setattr("orm_study.quiz.command.display_results", lambda chapter, user_answers: None)
 
-    result = runner.invoke(app, ["quiz", "start"])
+    result = runner.invoke(app, ["start"])
+    assert result.exit_code == 0
+
+
+def test_exam(monkeypatch):
+    inputs = iter(["n", "15"] + ["Answer"] * 15)
+    monkeypatch.setattr("rich.prompt.Prompt.ask", lambda prompt, choices=None: next(inputs))
+
+    monkeypatch.setattr(
+        "orm_study.quiz.command.fetch_exam",
+        lambda: [("Quiz", "Answer")] * 15,
+    )
+    monkeypatch.setattr("orm_study.quiz.command.generate_certification_image", lambda name, user_answers, process_time, save_path: None)
+
+    result = runner.invoke(app, ["exam"])
+    if result.exception:
+        print(f"Exception: {result.exception}")
     assert result.exit_code == 0

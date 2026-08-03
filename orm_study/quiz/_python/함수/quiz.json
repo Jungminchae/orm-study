@@ -1,0 +1,282 @@
+[
+  {
+    "id": "func_01",
+    "chapter": "함수",
+    "type": "multiple_choice",
+    "question": "다음 코드의 출력 결과로 옳은 것은?\n```python\ndef add(a, b=5):\n    return a + b\nprint(add(2))\n```",
+    "options": [
+      "7",
+      "2",
+      "5",
+      "TypeError"
+    ],
+    "answer": "1",
+    "explanation": "매개변수 b는 기본값 5를 가집니다. add(2)를 호출하면 a에 2가 할당되고 b는 기본값 5를 사용하여 2 + 5 = 7을 반환합니다."
+  },
+  {
+    "id": "func_02",
+    "chapter": "함수",
+    "type": "multiple_choice",
+    "question": "가변 매개변수(*args)를 사용하는 다음 함수의 출력은?\n```python\ndef calc(*args):\n    return sum(args)\nprint(calc(1, 2, 3))\n```",
+    "options": [
+      "(1, 2, 3)",
+      "6",
+      "1",
+      "에러 발생"
+    ],
+    "answer": "2",
+    "explanation": "*args는 위치 인수들을 튜플로 묶습니다. args는 (1, 2, 3)이 되며 내장함수 sum에 의해 총합인 6이 반환됩니다."
+  },
+  {
+    "id": "func_03",
+    "chapter": "함수",
+    "type": "multiple_choice",
+    "question": "가변 키워드 매개변수(**kwargs)에 대한 설명으로 틀린 것은?",
+    "options": [
+      "함수 내부에서 kwargs는 딕셔너리(dict) 타입이다.",
+      "호출 시 key=value 형태로 여러 개를 전달할 수 있다.",
+      "함수 정의 시 *args보다 앞에 위치해야 한다.",
+      "정해지지 않은 수의 키워드 인수를 처리할 때 유용하다."
+    ],
+    "answer": "3",
+    "explanation": "매개변수 정의 순서는 일반 매개변수, *args, **kwargs 순이어야 합니다. **kwargs는 반드시 *args 뒤에 와야 합니다."
+  },
+  {
+    "id": "func_04",
+    "chapter": "함수",
+    "type": "multiple_choice",
+    "question": "다음 코드의 출력 결과는 무엇인가요?\n```python\nx = 10\ndef change():\n    x = 20\nchange()\nprint(x)\n```",
+    "options": [
+      "10",
+      "20",
+      "None",
+      "NameError"
+    ],
+    "answer": "1",
+    "explanation": "함수 내부에서 x = 20으로 할당하면 전역 변수 x가 변경되는 것이 아니라 새로운 지역 변수 x가 생성됩니다. 따라서 전역 변수 x는 여전히 10입니다."
+  },
+  {
+    "id": "func_05",
+    "chapter": "함수",
+    "type": "multiple_choice",
+    "question": "다음 코드의 출력 결과는?\n```python\nx = 10\ndef change():\n    global x\n    x = 20\nchange()\nprint(x)\n```",
+    "options": [
+      "10",
+      "20",
+      "None",
+      "에러 발생"
+    ],
+    "answer": "2",
+    "explanation": "global 키워드를 사용하여 전역 변수 x를 수정하겠다고 선언했습니다. 함수 호출 후 전역 변수 x의 값이 20으로 변경됩니다."
+  },
+  {
+    "id": "func_06",
+    "chapter": "함수",
+    "type": "multiple_choice",
+    "question": "다음 코드의 실행 결과로 올바른 것은?\n```python\ndef append_item(item, lst=[]):\n    lst.append(item)\n    return lst\nprint(append_item(1))\nprint(append_item(2))\n```",
+    "options": [
+      "[1]\\n[2]",
+      "[1]\\n[1, 2]",
+      "[1, 2]\\n[1, 2]",
+      "에러 발생"
+    ],
+    "answer": "2",
+    "explanation": "파이썬에서 함수의 기본값(default argument)은 함수가 정의될 때 한 번만 평가됩니다. 따라서 가변 객체인 리스트를 기본값으로 사용하면 호출 간에 상태가 유지되어 [1], [1, 2]가 출력됩니다."
+  },
+  {
+    "id": "func_07",
+    "chapter": "함수",
+    "type": "multiple_choice",
+    "question": "다음 람다(lambda) 함수의 사용 결과는?\n```python\nf = lambda x, y: x * y\nprint(f(3, 4))\n```",
+    "options": [
+      "7",
+      "12",
+      "f(3, 4)",
+      "SyntaxError"
+    ],
+    "answer": "2",
+    "explanation": "람다 함수는 익명 함수를 한 줄로 간결하게 표현합니다. lambda x, y: x * y는 두 인자를 곱해 반환하므로 3 * 4 = 12입니다."
+  },
+  {
+    "id": "func_08",
+    "chapter": "함수",
+    "type": "multiple_choice",
+    "question": "다음 중 여러 값을 반환하는 함수에 대한 설명으로 옳은 것은?\n```python\ndef get_coords():\n    return 10, 20\nx, y = get_coords()\n```",
+    "options": [
+      "두 개의 값이 각각 리스트 형태로 반환된다.",
+      "에러가 발생하므로 return (10, 20)으로 명시해야 한다.",
+      "콤마로 구분하여 반환하면 하나의 튜플로 패킹되어 반환된다.",
+      "첫 번째 값(10)만 반환되고 두 번째 값(20)은 무시된다."
+    ],
+    "answer": "3",
+    "explanation": "파이썬에서는 콤마로 값을 구분하여 반환하면 자동으로 튜플로 패킹되어 반환됩니다. 호출부에서는 튜플 언패킹을 통해 x, y에 각각 할당할 수 있습니다."
+  },
+  {
+    "id": "func_09",
+    "chapter": "함수",
+    "type": "multiple_choice",
+    "question": "다음 코드에서 에러가 발생하는 이유는 무엇인가요?\n```python\ndef func(a, b, *, c):\n    return a + b + c\nfunc(1, 2, 3)\n```",
+    "options": [
+      "* 기호는 매개변수로 사용할 수 없다.",
+      "c는 키워드 전용(keyword-only) 인수이므로 반드시 이름과 함께 전달해야 한다.",
+      "b와 c 사이에 *args가 빠져있다.",
+      "매개변수 선언 순서가 잘못되었다."
+    ],
+    "answer": "2",
+    "explanation": "* 이후에 선언된 매개변수는 키워드 전용 인수가 됩니다. 따라서 func(1, 2, c=3) 형태로 호출해야 합니다."
+  },
+  {
+    "id": "func_10",
+    "chapter": "함수",
+    "type": "multiple_choice",
+    "question": "다음 함수의 출력 결과는?\n```python\ndef test(a, b, c):\n    print(a, b, c)\nargs = [1, 2, 3]\ntest(*args)\n```",
+    "options": [
+      "[1, 2, 3] None None",
+      "1 2 3",
+      "에러 발생",
+      "test([1, 2, 3])"
+    ],
+    "answer": "2",
+    "explanation": "함수 호출 시 리스트 앞에 *를 붙이면 언패킹(unpacking)되어 리스트의 원소들이 각각의 인수로 전달됩니다. 따라서 1 2 3이 출력됩니다."
+  },
+  {
+    "id": "func_11",
+    "chapter": "함수",
+    "type": "multiple_choice",
+    "question": "다음 코드의 출력 결과는?\n```python\ndef outer():\n    x = 1\n    def inner():\n        nonlocal x\n        x += 1\n        print(x)\n    inner()\nouter()\n```",
+    "options": [
+      "1",
+      "2",
+      "None",
+      "UnboundLocalError"
+    ],
+    "answer": "2",
+    "explanation": "nonlocal 키워드는 바로 바깥쪽 함수의 지역 변수를 참조하고 수정할 수 있게 해줍니다. x가 1에서 2로 증가한 후 출력됩니다."
+  },
+  {
+    "id": "func_12",
+    "chapter": "함수",
+    "type": "multiple_choice",
+    "question": "클로저(Closure)에 대한 설명으로 가장 적절한 것은?",
+    "options": [
+      "함수가 자신을 감싸는 스코프의 변수들을 기억하고 있는 상태",
+      "함수 내부에서 전역 변수를 선언하는 방법",
+      "재귀 함수가 종료 조건을 만족하여 반환되는 과정",
+      "함수 실행 중 에러가 발생하여 비정상 종료되는 현상"
+    ],
+    "answer": "1",
+    "explanation": "클로저는 어떤 함수가 자신을 둘러싼 환경(스코프)의 변수 상태를 기억하고, 나중에 호출될 때 그 환경에 접근할 수 있게 하는 기능입니다."
+  },
+  {
+    "id": "func_13",
+    "chapter": "함수",
+    "type": "multiple_choice",
+    "question": "다음 데코레이터 코드의 출력 결과는?\n```python\ndef deco(func):\n    def wrapper():\n        print('A')\n        func()\n        print('B')\n    return wrapper\n\n@deco\ndef hello():\n    print('C')\n\nhello()\n```",
+    "options": [
+      "C\\nA\\nB",
+      "A\\nB\\nC",
+      "A\\nC\\nB",
+      "C"
+    ],
+    "answer": "3",
+    "explanation": "@deco 데코레이터를 적용하면 hello = deco(hello)와 같습니다. 따라서 hello()를 호출하면 wrapper가 실행되어 'A', 'C'(기존 hello), 'B' 순서로 출력됩니다."
+  },
+  {
+    "id": "func_14",
+    "chapter": "함수",
+    "type": "multiple_choice",
+    "question": "제너레이터 함수에 대한 설명으로 틀린 것은?",
+    "options": [
+      "yield 키워드를 사용하여 값을 반환한다.",
+      "호출 시 함수의 내용을 한 번에 모두 실행하고 리스트를 반환한다.",
+      "상태를 유지하며 반복 가능(iterable)한 객체를 생성한다.",
+      "next() 함수를 통해 다음 값을 순차적으로 얻을 수 있다."
+    ],
+    "answer": "2",
+    "explanation": "제너레이터 함수는 호출 시 제너레이터 객체를 반환할 뿐 코드를 즉시 실행하지 않으며, next()가 호출될 때 yield까지 실행하고 멈춥니다. 메모리 효율성이 높습니다."
+  },
+  {
+    "id": "func_15",
+    "chapter": "함수",
+    "type": "multiple_choice",
+    "question": "다음 함수 호출 중 에러가 발생하는 것은?\n```python\ndef info(name, age=20):\n    pass\n```",
+    "options": [
+      "info('Alice')",
+      "info('Bob', 25)",
+      "info(age=30, name='Charlie')",
+      "info(age=35)"
+    ],
+    "answer": "4",
+    "explanation": "필수 위치 인수인 name이 전달되지 않았기 때문에 에러(TypeError)가 발생합니다. age는 기본값이 있지만 name은 반드시 제공해야 합니다."
+  },
+  {
+    "id": "func_16",
+    "chapter": "함수",
+    "type": "multiple_choice",
+    "question": "다음 코드의 출력 결과는?\n```python\ndef add(a):\n    return a + a\ndef apply(func, x):\n    return func(x)\nprint(apply(add, 3))\n```",
+    "options": [
+      "3",
+      "6",
+      "9",
+      "TypeError"
+    ],
+    "answer": "2",
+    "explanation": "함수 apply는 첫 번째 인자로 함수 자체(add)를 받고 두 번째 인자(3)를 해당 함수에 적용합니다. add(3)이 호출되어 3 + 3 = 6을 반환합니다."
+  },
+  {
+    "id": "func_17",
+    "chapter": "함수",
+    "type": "multiple_choice",
+    "question": "다음 재귀 함수의 출력 결과로 옳은 것은?\n```python\ndef factorial(n):\n    if n <= 1:\n        return 1\n    return n * factorial(n - 1)\nprint(factorial(4))\n```",
+    "options": [
+      "4",
+      "10",
+      "24",
+      "120"
+    ],
+    "answer": "3",
+    "explanation": "4 * factorial(3) -> 4 * 3 * factorial(2) -> 4 * 3 * 2 * factorial(1) -> 4 * 3 * 2 * 1 = 24입니다."
+  },
+  {
+    "id": "func_18",
+    "chapter": "함수",
+    "type": "multiple_choice",
+    "question": "파이썬 3.8 이상에서 위치 전용 매개변수(/)를 사용한 다음 코드의 결과는?\n```python\ndef pos_only(a, /, b):\n    print(a, b)\npos_only(a=1, b=2)\n```",
+    "options": [
+      "1 2",
+      "SyntaxError",
+      "TypeError",
+      "None"
+    ],
+    "answer": "3",
+    "explanation": "/ 앞의 매개변수 a는 위치 전용(positional-only)이므로 키워드 인수로 전달할 수 없습니다. 따라서 TypeError가 발생합니다."
+  },
+  {
+    "id": "func_19",
+    "chapter": "함수",
+    "type": "multiple_choice",
+    "question": "다음 코드를 실행했을 때 어떤 일이 발생하나요?\n```python\ndef my_func():\n    pass\nmy_func.custom_attr = 'test'\nprint(my_func.custom_attr)\n```",
+    "options": [
+      "AttributeError",
+      "'test'",
+      "None",
+      "SyntaxError"
+    ],
+    "answer": "2",
+    "explanation": "파이썬에서 함수는 1급 객체이므로 임의의 속성(attribute)을 동적으로 추가할 수 있습니다. 따라서 'test'가 정상적으로 출력됩니다."
+  },
+  {
+    "id": "func_20",
+    "chapter": "함수",
+    "type": "multiple_choice",
+    "question": "다음 함수 정의에서 반환값이 명시되지 않았을 때의 기본 반환값은?\n```python\ndef no_return():\n    x = 10\n```",
+    "options": [
+      "0",
+      "False",
+      "None",
+      "'' (빈 문자열)"
+    ],
+    "answer": "3",
+    "explanation": "파이썬 함수에서 return 문이 없거나 return 뒤에 아무 값도 지정하지 않으면, 자동으로 None을 반환합니다."
+  }
+]

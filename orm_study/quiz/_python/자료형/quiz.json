@@ -1,0 +1,226 @@
+[
+  {
+    "id": "q1",
+    "chapter": "자료형",
+    "type": "multiple_choice",
+    "question": "다음 중 정수형으로 옳은 것을 고르시오.",
+    "options": [
+      "1",
+      "1.0",
+      "\"1\"",
+      "str(1)"
+    ],
+    "answer": "1",
+    "explanation": ""
+  },
+  {
+    "id": "q2",
+    "chapter": "자료형",
+    "type": "multiple_choice",
+    "question": "다음 코드의 출력 결과로 옳은 것을 고르시오.\n\nx = 8\ny = 2\nprint(x / y)",
+    "options": [
+      "4",
+      "2.0",
+      "4.0",
+      "0"
+    ],
+    "answer": "3",
+    "explanation": ""
+  },
+  {
+    "id": "q3",
+    "chapter": "자료형",
+    "type": "multiple_choice",
+    "question": "다음 중 시퀀스 자료형이 아닌 것을 고르시오.",
+    "options": [
+      "문자열",
+      "튜플",
+      "리스트",
+      "딕셔너리"
+    ],
+    "answer": "4",
+    "explanation": ""
+  },
+  {
+    "id": "q4",
+    "chapter": "자료형",
+    "type": "multiple_choice",
+    "question": "다음 코드 출력 결과로 옳은 것을 고르시오.\n\nx = \"apple\"\ny = 3\nprint(y * x)",
+    "options": [
+      "None",
+      "Error",
+      "appleappleapple",
+      "3apple"
+    ],
+    "answer": "3",
+    "explanation": ""
+  },
+  {
+    "id": "q5",
+    "chapter": "자료형",
+    "type": "multiple_choice",
+    "question": "다음 중 코드 출력 결과로 옳은 것을 고르시오.\n\nx = \"new\"\ny = \"s\"\nprint('new' + x)",
+    "options": [
+      "\"new\"\"s\"",
+      "news",
+      "newnew",
+      "newx"
+    ],
+    "answer": "3",
+    "explanation": ""
+  },
+  {
+    "id": "q6",
+    "chapter": "자료형",
+    "type": "multiple_choice",
+    "question": "다음 코드의 출력 결과는 무엇인가요?\n\nx = 5.7\nprint(type(x))",
+    "options": [
+      "<class 'int'>",
+      "<class 'float'>",
+      "<class 'str'>",
+      "<class 'bool'>"
+    ],
+    "answer": "2",
+    "explanation": ""
+  },
+  {
+    "id": "q7",
+    "chapter": "자료형",
+    "type": "multiple_choice",
+    "question": "다음 중 불리언(bool) 자료형을 나타내는 것은?",
+    "options": [
+      "“True”",
+      "1",
+      "False",
+      "“False”"
+    ],
+    "answer": "3",
+    "explanation": ""
+  },
+  {
+    "id": "q8",
+    "chapter": "자료형",
+    "type": "multiple_choice",
+    "question": "다음 코드의 출력 결과로 옳은 것을 고르시오.\n\nx = 7\nprint(isinstance(x, int))",
+    "options": [
+      "True",
+      "False",
+      "Error",
+      "None"
+    ],
+    "answer": "1",
+    "explanation": ""
+  },
+  {
+    "id": "q9",
+    "chapter": "자료형",
+    "type": "multiple_choice",
+    "question": "다음 중 파이썬에서 리스트(list)를 선언하는 방법으로 옳은 것은?",
+    "options": [
+      "_list = (1, 2, 3)",
+      "_list = [1, 2, 3]",
+      "_list = {1, 2, 3}",
+      "_list = <1, 2, 3>"
+    ],
+    "answer": "2",
+    "explanation": ""
+  },
+  {
+    "id": "q10",
+    "chapter": "자료형",
+    "type": "multiple_choice",
+    "question": "다음 코드의 출력 결과로 옳은 것을 고르시오.\n\nx = [1, 2, 3]\ny = x\ny.append(4)\nprint(x)",
+    "options": [
+      "[1, 2, 3]",
+      "[1, 2, 3, 4]",
+      "[1, 2, 4]",
+      "Error"
+    ],
+    "answer": "2",
+    "explanation": ""
+  },
+  {
+    "id": "q11",
+    "chapter": "자료형",
+    "type": "multiple_choice",
+    "question": "다음 중 파이썬에서 딕셔너리(dict)를 선언하는 방법으로 옳은 것은?",
+    "options": [
+      "_dict = [1: “one”, 2: “two”]",
+      "_dict = (1: “one”, 2: “two”)",
+      "_dict = {1: “one”, 2: “two”}",
+      "_dict = <1: “one”, 2: “two”>"
+    ],
+    "answer": "3",
+    "explanation": ""
+  },
+  {
+    "id": "q12",
+    "chapter": "자료형",
+    "type": "multiple_choice",
+    "question": "다음 코드의 출력 결과로 옳은 것을 고르시오.\n\nx = (1, 2, 3)\nx[0] = 0\nprint(x)",
+    "options": [
+      "(0, 2, 3)",
+      "(1, 2, 3)",
+      "Error",
+      "None"
+    ],
+    "answer": "3",
+    "explanation": ""
+  },
+  {
+    "id": "q13",
+    "chapter": "자료형",
+    "type": "multiple_choice",
+    "question": "다음 중 세트(set)를 올바르게 선언한 것은?",
+    "options": [
+      "_set = {1, 2, 3}",
+      "_set = [1, 2, 3]",
+      "_set = (1, 2, 3)",
+      "_set = <1, 2, 3>"
+    ],
+    "answer": "1",
+    "explanation": ""
+  },
+  {
+    "id": "q14",
+    "chapter": "자료형",
+    "type": "multiple_choice",
+    "question": "다음 코드의 출력 결과로 옳은 것을 고르시오.\n\nx = {1, 2, 3}\nx.add(4)\nprint(x)",
+    "options": [
+      "{1, 2, 3}",
+      "{1, 2, 3, 4}",
+      "[1, 2, 3, 4]",
+      "(1, 2, 3, 4)"
+    ],
+    "answer": "2",
+    "explanation": ""
+  },
+  {
+    "id": "q15",
+    "chapter": "자료형",
+    "type": "multiple_choice",
+    "question": "다음 코드의 출력 결과로 옳은 것을 고르시오.\n\nx = “Hello”\ny = ‘World’\nprint(x + “ “ + y)",
+    "options": [
+      "HelloWorld",
+      "Hello World",
+      "‘HelloWorld’",
+      "‘Hello World’"
+    ],
+    "answer": "2",
+    "explanation": ""
+  },
+  {
+    "id": "q16",
+    "chapter": "자료형",
+    "type": "multiple_choice",
+    "question": "다음 중 튜플(tuple)의 특징으로 옳지 않은 것은?",
+    "options": [
+      "튜플은 Immutable객체이다.",
+      "튜플은 중복된 요소를 가질 수 있다.",
+      "튜플은 Sequential한 객체이다.",
+      "튜플은 요소를 추가할 수 있다."
+    ],
+    "answer": "4",
+    "explanation": ""
+  }
+]

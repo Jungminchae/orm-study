@@ -1,0 +1,170 @@
+[
+  {
+    "id": "q1",
+    "chapter": "연산자",
+    "type": "multiple_choice",
+    "question": "파이썬에서 두 변수 a, b에 대해 a를 b로 나누었을 때의 몫과 나머지를 구하는 식으로 옳은 것을 고르시오.",
+    "options": [
+      "a % b, a / b",
+      "a // b, a / b",
+      "a // b, a % b",
+      "a * b, a // b"
+    ],
+    "answer": "3",
+    "explanation": ""
+  },
+  {
+    "id": "q2",
+    "chapter": "연산자",
+    "type": "multiple_choice",
+    "question": "임의의 정수 자료형 a, b, c에 대해 연산자의 사용에 대해 옳은 것을 고르시오.",
+    "options": [
+      "a == b == c",
+      "(a >= b) || (a == c)",
+      "(a == b) && (a == c)",
+      "a in b"
+    ],
+    "answer": "1",
+    "explanation": ""
+  },
+  {
+    "id": "q3",
+    "chapter": "연산자",
+    "type": "multiple_choice",
+    "question": "다음 중 두 변수 a, b에 대해 a를 b로 나누었을 때의 결과를 실수형으로 얻기 위한 식으로 옳은 것은?",
+    "options": [
+      "a // b",
+      "a % b",
+      "a / b",
+      "a * b"
+    ],
+    "answer": "3",
+    "explanation": ""
+  },
+  {
+    "id": "q4",
+    "chapter": "연산자",
+    "type": "multiple_choice",
+    "question": "다음 코드의 출력 결과로 옳은 것을 고르시오.\n\na = 10\nb = 3\nprint(a % b)",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "answer": "1",
+    "explanation": ""
+  },
+  {
+    "id": "q5",
+    "chapter": "연산자",
+    "type": "multiple_choice",
+    "question": "다음 중 파이썬에서 거듭제곱 연산을 수행하는 방법으로 옳은 것은?",
+    "options": [
+      "a ^ b",
+      "a ** b",
+      "a ^^ b",
+      "a * b"
+    ],
+    "answer": "2",
+    "explanation": ""
+  },
+  {
+    "id": "q6",
+    "chapter": "연산자",
+    "type": "multiple_choice",
+    "question": "다음 코드의 출력 결과로 옳은 것을 고르시오.\n\na = 5\nb = 10\nprint(a > b)",
+    "options": [
+      "True",
+      "False",
+      "1",
+      "0"
+    ],
+    "answer": "2",
+    "explanation": ""
+  },
+  {
+    "id": "q7",
+    "chapter": "연산자",
+    "type": "multiple_choice",
+    "question": "다음 중 파이썬에서 논리 연산자를 사용한 표현으로 옳지 않은 것은?",
+    "options": [
+      "a and b",
+      "a or b",
+      "not a",
+      "a && b"
+    ],
+    "answer": "4",
+    "explanation": ""
+  },
+  {
+    "id": "q8",
+    "chapter": "연산자",
+    "type": "multiple_choice",
+    "question": "다음 코드의 출력 결과로 옳은 것을 고르시오.\n\na = 8\nb = 3\nprint(a // b)",
+    "options": [
+      "2.666",
+      "2.67",
+      "2",
+      "3"
+    ],
+    "answer": "3",
+    "explanation": ""
+  },
+  {
+    "id": "q9",
+    "chapter": "연산자",
+    "type": "multiple_choice",
+    "question": "다음 중 변수 x가 5와 10 사이에 있는지 확인하는 조건문으로 옳은 것은?",
+    "options": [
+      "5 < x < 10",
+      "x > 5 && x < 10",
+      "5 <= x <= 10",
+      "x >= 5 && x <= 10"
+    ],
+    "answer": "1",
+    "explanation": ""
+  },
+  {
+    "id": "q10",
+    "chapter": "연산자",
+    "type": "multiple_choice",
+    "question": "다음 코드의 출력 결과로 옳은 것을 고르시오.\n\na = True\nb = False\nprint(a and b)",
+    "options": [
+      "True",
+      "False",
+      "1",
+      "0"
+    ],
+    "answer": "2",
+    "explanation": ""
+  },
+  {
+    "id": "q11",
+    "chapter": "연산자",
+    "type": "multiple_choice",
+    "question": "다음 중 파이썬에서 비교 연산자를 올바르게 사용한 것은?",
+    "options": [
+      "a = b",
+      "a => b",
+      "a == b",
+      "a =< b"
+    ],
+    "answer": "3",
+    "explanation": ""
+  },
+  {
+    "id": "q12",
+    "chapter": "연산자",
+    "type": "multiple_choice",
+    "question": "다음 코드의 출력 결과로 옳은 것을 고르시오.\n\na = 5\nb = 2\na += b\nprint(a)",
+    "options": [
+      "5",
+      "7",
+      "3",
+      "10"
+    ],
+    "answer": "2",
+    "explanation": ""
+  }
+]

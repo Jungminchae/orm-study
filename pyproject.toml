@@ -1,44 +1,46 @@
-[tool.poetry]
+[project]
 name = "orm-study"
 version = "0.1.1"
 description = "cli library for studying python in ormcamp"
-authors = ["jungminchae <minchae3618@gmail.com>"]
-license = "MIT"
+authors = [
+    { name = "jungminchae", email = "minchae3618@gmail.com" }
+]
+license = { text = "MIT" }
 readme = "README.md"
-homepage = "https://github.com/jungminchae/orm-study"
-repository = "https://github.com/jungminchae/orm-study"
+requires-python = ">=3.10"
 keywords = ["orm-study", "Python", "orm-camp", "education"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
-    "Programming Language :: Python",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
-    "Topic :: Software Development :: Libraries",
     "Topic :: Software Development :: Libraries :: Python Modules"
 ]
+dependencies = [
+    "pillow>=12.3.0",
+    "rich>=15.0.0",
+    "typer>=0.27.0",
+]
 
-[tool.poetry.dependencies]
-python = "^3.10"
-typer = "^0.12.3"
-rich = "^13.7.1"
-pillow = "^10.4.0"
+[project.urls]
+Homepage = "https://github.com/jungminchae/orm-study"
+Repository = "https://github.com/jungminchae/orm-study"
 
-
-[tool.poetry.scripts]
+[project.scripts]
 ost = "orm_study.main:main"
-
-
-[tool.poetry.group.dev.dependencies]
-pytest = "^8.2.2"
+quiz-cli = "orm_study.main:main"
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
 
 [tool.ruff]
 line-length = 140
